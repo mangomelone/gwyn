@@ -68,7 +68,7 @@ public class NavigatorActivity extends AppCompatActivity {
             if (item.isVisible())
                 menuItems.add(item.getBezeichnung());
         }
-        mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, menuItems);
+        mAdapter = new ArrayAdapter<String>(this, R.layout.single_menu_item, menuItems);
         mDrawerList.setAdapter(mAdapter);
     }
 
