@@ -12,7 +12,8 @@ public enum EnumMenuItem {
     IMPRESSUM("Impressum", 4, true),
     HILFE("Hilfe", 5, true),
     ERGEBNISSE("Suchergebnisse", 6, false),
-    DETAIL("Detailansicht", 7, false);
+    DETAIL("Detailansicht", 7, false),
+    BUCHUNG_ABGESCHLOSSEN("Buchung abgeschlossen", 8, false);
 
     private final String bezeichnung;
     private final int code;

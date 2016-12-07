@@ -109,6 +109,10 @@ public class MenuItemFragment extends Fragment {
             mViewPager.setAdapter(adapterView);
             return view;
         }
+        if (EnumMenuItem.BUCHUNG_ABGESCHLOSSEN.equals(savedInstanceState.get(ARG_MENU_ITEM_NUMBER)))
+        {
+            return inflater.inflate(R.layout.booking_fragment, container, false);
+        }
         return null;
     }
 }
