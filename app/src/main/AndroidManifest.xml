@@ -24,6 +24,11 @@
             android:label="Suche Produkt"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
+        <activity
+            android:name=".ResultsActivity"
+            android:label="Ergebnisse"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
     </application>
 
 </manifest>

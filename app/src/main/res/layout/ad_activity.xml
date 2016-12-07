@@ -58,7 +58,8 @@
          android:layout_height="wrap_content"
          android:id="@+id/btnimageView"
          android:layout_below="@+id/imageView3"
-         android:layout_centerHorizontal="true" />
+         android:layout_centerHorizontal="true"
+         android:onClick="showResults"/>
 
 
  </RelativeLayout>

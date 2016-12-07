@@ -1,9 +1,11 @@
 package com.genosharing.gwyn;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 
 /**
@@ -32,6 +34,12 @@ public class AdvertisementActivity extends Activity {
         buttonImage.setImageBitmap(resizedBtn);
 
 
+    }
+
+    public void showResults(View view)
+    {
+        Intent intent = new Intent(this, ResultsActivity.class);
+        startActivity(intent);
     }
 
 }
