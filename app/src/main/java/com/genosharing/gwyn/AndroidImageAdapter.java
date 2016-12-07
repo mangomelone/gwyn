@@ -20,8 +20,8 @@ public class AndroidImageAdapter extends PagerAdapter {
     }
 
     private int[] sliderImagesId = new int[]{
-            R.drawable.einhorn, R.drawable.huepfburg_castle, R.drawable.jetzt_buchen,
-            R.drawable.logo, R.drawable.huepfburg, R.drawable.profilbild
+            R.drawable.beschreibung1, R.drawable.beschreibung2, R.drawable.beschreibung3,
+            R.drawable.beschreibung4, R.drawable.beschreibung5, R.drawable.beschreibung6
     };
 
     @Override
