@@ -39,15 +39,31 @@
             android:id="@+id/single_result_price"
             android:layout_gravity="center_horizontal"
             android:textSize="18sp" />
+
     </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center">
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/single_result_profile_pic"
         android:contentDescription="@string/productImage"
         android:src="@mipmap/ic_launcher"
         android:layout_gravity="center_horizontal"
         android:padding="@dimen/icon_margin" />
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ratingBar"
+        android:numStars="5"
+        android:stepSize="1"
+        android:theme="@style/RatingBar"/>
+    </LinearLayout>
 
 </LinearLayout>

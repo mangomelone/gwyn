@@ -11,11 +11,13 @@ public class User {
     private String vorname;
     private String nachname;
     private Bitmap profilePic;
+    private Rating rating;
 
-    public User(String vorname, String nachname, Bitmap profilePic) {
+    public User(String vorname, String nachname, Bitmap profilePic, Rating rating) {
         this.vorname = vorname;
         this.nachname = nachname;
         this.profilePic = profilePic;
+        this.rating = rating;
     }
 
     public String getVorname() {
@@ -40,5 +42,13 @@ public class User {
 
     public void setProfilePic(Bitmap profilePic) {
         this.profilePic = profilePic;
+    }
+
+    public Rating getRating() {
+        return rating;
+    }
+
+    public void setRating(Rating rating) {
+        this.rating = rating;
     }
 }

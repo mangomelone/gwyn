@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import java.util.List;
@@ -39,6 +40,8 @@ public class ResultListArrayAdapter extends ArrayAdapter {
         price.setText(offer.getPrice().toString());
         ImageView profilePic = (ImageView) view.findViewById(R.id.single_result_profile_pic);
         profilePic.setImageBitmap(offer.getVendor().getProfilePic());
+        RatingBar rating = (RatingBar) view.findViewById(R.id.ratingBar);
+        rating.setRating(offer.getVendor().getRating().getValue());
         return view;
     }
 }

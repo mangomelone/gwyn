@@ -25,9 +25,12 @@ public class DummyData {
         Product huepfburg = new Product("Hüpfburg", "Ganz wunderbare Hüpfburg", createBitmap(activity, R.drawable.suchergebnis1, scale));
         Product huepfinsel = new Product("Hüpfinsel", "Ganz wunderbare Hüpfinsel", createBitmap(activity, R.drawable.suchergebnis2, scale));
         Product huepfhaus = new Product("Hüpfhaus", "Ganz wunderbares Hüpfhaus", createBitmap(activity, R.drawable.suchergebnis3, scale));
-        User verkaeufer1 = new User("Max", "Musterverkäufer", createBitmap(activity, R.drawable.suchergebnis1potrait, profileScale));
-        User verkaeufer2 = new User("Max", "Musterverkäufer", createBitmap(activity, R.drawable.suchergebnis2potrait, profileScale));
-        User verkaeufer3 = new User("Max", "Musterverkäufer", createBitmap(activity, R.drawable.suchergebnis3portrait, profileScale));
+        Rating low = new Rating(2);
+        Rating middle = new Rating(3);
+        Rating high = new Rating(5);
+        User verkaeufer1 = new User("Max", "Musterverkäufer", createBitmap(activity, R.drawable.suchergebnis1potrait, profileScale), high);
+        User verkaeufer2 = new User("Max", "Musterverkäufer", createBitmap(activity, R.drawable.suchergebnis2potrait, profileScale), middle);
+        User verkaeufer3 = new User("Max", "Musterverkäufer", createBitmap(activity, R.drawable.suchergebnis3portrait, profileScale), low);
         Offer offer1 = new Offer(huepfburg, _20EuroProWoche, verkaeufer1);
         Offer offer2 = new Offer(huepfinsel, _20EuroProWoche, verkaeufer3);
         Offer offer3 = new Offer(huepfhaus, _10EuroProTag, verkaeufer2);

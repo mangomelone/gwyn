@@ -17,4 +17,7 @@
     <color name="view_divider_color">#9bbf11</color>
     <color name="view_divider_color_2">#9bbf11</color>
 
+    <color name="duskYellow">#9bbf11</color>
+    <color name="lightGrey">#9bbf11</color>
+
 </resources>
