@@ -4,12 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_categories"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.genosharing.gwyn.CategoriesActivity">
+    android:layout_height="match_parent" >
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/categories"
+        app:srcCompat="@drawable/categories_new"
         android:id="@+id/imageView2" />
 </FrameLayout>

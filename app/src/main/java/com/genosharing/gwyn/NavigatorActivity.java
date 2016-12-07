@@ -12,12 +12,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ResultsActivity extends AppCompatActivity {
+public class NavigatorActivity extends AppCompatActivity {
 
     private ListView mDrawerList;
     private ArrayAdapter<String> mAdapter;
@@ -28,7 +27,7 @@ public class ResultsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.results);
+        setContentView(R.layout.navigation);
 
         mDrawerList = (ListView)findViewById(R.id.navList);
         mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
@@ -39,11 +38,11 @@ public class ResultsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-        ResultListArrayAdapter adapter = new ResultListArrayAdapter(this,
-                R.layout.single_result, DummyData.getOffers(this));
-
-        ListView listView = (ListView) findViewById(R.id.resultList);
-        listView.setAdapter(adapter);
+//        ResultListArrayAdapter adapter = new ResultListArrayAdapter(this,
+//                R.layout.single_result, DummyData.getOffers(this));
+//
+//        ListView listView = (ListView) findViewById(R.id.resultList);
+//        listView.setAdapter(adapter);
     }
 
     private void addDrawerItems() {
@@ -85,10 +84,10 @@ public class ResultsActivity extends AppCompatActivity {
 
 
                 // Insert the fragment by replacing any existing fragment
-//                FragmentManager fragmentManager = getFragmentManager();
-//                fragmentManager.beginTransaction()
-//                        .replace(R.id.content_frame, fragment)
-//                        .commit();
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.content_frame, fragment)
+                        .commit();
 
                 // Highlight the selected item, update the title, and close the drawer
                 mDrawerList.setItemChecked(position, true);
