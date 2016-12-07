@@ -13,7 +13,7 @@ public class ResultsActivity extends AppCompatActivity {
         setContentView(R.layout.results);
 
         ResultListArrayAdapter adapter = new ResultListArrayAdapter(this,
-                R.layout.single_result, DummyData.getOffers());
+                R.layout.single_result, DummyData.getOffers(this));
 
         ListView listView = (ListView) findViewById(R.id.resultList);
         listView.setAdapter(adapter);

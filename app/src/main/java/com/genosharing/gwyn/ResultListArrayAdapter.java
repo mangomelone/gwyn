@@ -3,6 +3,7 @@ package com.genosharing.gwyn;
 import android.content.Context;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -23,12 +24,21 @@ public class ResultListArrayAdapter extends ArrayAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         Offer offer = (Offer) getItem(position);
-        ImageView image = (ImageView) convertView.findViewById(R.id.single_result_image);
-        image.setImageResource(R.mipmap.ic_launcher);
-        TextView title = (TextView) convertView.findViewById(R.id.single_result_title);
+
+        View view = convertView;
+        if (view == null) {
+            LayoutInflater vi = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            view = vi.inflate(R.layout.single_result, null);
+        }
+
+        ImageView image = (ImageView) view.findViewById(R.id.single_result_image);
+        image.setImageBitmap(offer.getProduct().getImage());
+        TextView title = (TextView) view.findViewById(R.id.single_result_title);
         title.setText(offer.getProduct().getName());
-        TextView price = (TextView) convertView.findViewById(R.id.single_result_price);
-        title.setText(offer.getPrice().toString());
-        return convertView;
+        TextView price = (TextView) view.findViewById(R.id.single_result_price);
+        price.setText(offer.getPrice().toString());
+        ImageView profilePic = (ImageView) view.findViewById(R.id.single_result_profile_pic);
+        profilePic.setImageBitmap(offer.getVendor().getProfilePic());
+        return view;
     }
 }

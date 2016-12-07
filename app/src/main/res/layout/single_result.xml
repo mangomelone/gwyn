@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:minHeight="?android:listPreferredItemHeight"
     android:id="@+id/single_result_item"
     android:gravity="center_vertical">
@@ -12,13 +13,13 @@
         android:id="@+id/single_result_image"
         android:contentDescription="@string/productImage"
         android:src="@mipmap/ic_launcher"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:padding="@dimen/icon_margin"/>
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal"
         android:gravity="center"
         android:layout_weight="1">
 
@@ -27,14 +28,26 @@
             android:layout_height="wrap_content"
             android:text="Hüpfburg"
             android:id="@+id/single_result_title"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="sans-serif"
+            android:textSize="24sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="17€/Tag"
             android:id="@+id/single_result_price"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:textSize="18sp" />
     </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/single_result_profile_pic"
+        android:contentDescription="@string/productImage"
+        android:src="@mipmap/ic_launcher"
+        android:layout_gravity="center_horizontal"
+        android:padding="@dimen/icon_margin" />
 
 </LinearLayout>
