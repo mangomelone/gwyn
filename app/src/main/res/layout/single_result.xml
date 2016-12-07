@@ -5,8 +5,7 @@
     android:layout_height="match_parent"
     android:minHeight="?android:listPreferredItemHeight"
     android:id="@+id/single_result_item"
-    android:gravity="center_vertical"
-    android:onClick="showDetails">
+    android:gravity="center_vertical" >
 
     <ImageView
         android:layout_width="wrap_content"

@@ -21,14 +21,14 @@
         <activity
             android:name=".StartActivity"
             android:label="Suche Produkt"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".NavigatorActivity"
-            android:label="Suchergebnisse"></activity>
+            android:label="Suchergebnisse" />
         <activity
             android:name=".DetailActivity"
             android:label="Ergebnisse"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
