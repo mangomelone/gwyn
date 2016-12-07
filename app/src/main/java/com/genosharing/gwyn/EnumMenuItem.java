@@ -7,11 +7,12 @@ package com.genosharing.gwyn;
 public enum EnumMenuItem {
     ENTDECKEN("Entdecken", 0, true),
     KATEGORIEN("Kategorien", 1, true),
-    PROFIL("Mein Profil", 2, true),
-    IMPRESSUM("Impressum", 3, true),
-    HILFE("Hilfe", 4, true),
-    ERGEBNISSE("Suchergebnisse", 5, false),
-    DETAIL("Detailansicht", 6, false);
+    STATIONS("GWYN-Stations", 2, true),
+    PROFIL("Mein Profil", 3, true),
+    IMPRESSUM("Impressum", 4, true),
+    HILFE("Hilfe", 5, true),
+    ERGEBNISSE("Suchergebnisse", 6, false),
+    DETAIL("Detailansicht", 7, false);
 
     private final String bezeichnung;
     private final int code;

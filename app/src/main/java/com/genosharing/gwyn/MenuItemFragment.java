@@ -60,13 +60,27 @@ public class MenuItemFragment extends Fragment {
         {
             return inflater.inflate(R.layout.categories, container, false);
         }
+        if (EnumMenuItem.STATIONS.equals(savedInstanceState.get(ARG_MENU_ITEM_NUMBER)))
+        {
+            return inflater.inflate(R.layout.categories, container, false);
+        }
         if (EnumMenuItem.PROFIL.equals(savedInstanceState.get(ARG_MENU_ITEM_NUMBER)))
         {
-            return inflater.inflate(R.layout.result_list, container, false);
+            View view = inflater.inflate(R.layout.profile_fragment, container, false);
+            Bitmap image = BitmapFactory.decodeResource(getActivity().getResources(), R.drawable.profilbild);
+            Bitmap imageResized = Bitmap.createScaledBitmap(image, (int) (image.getWidth() *  1.5), (int) (image.getHeight() * 1.5), true);
+            ImageView profilePic = (ImageView) view.findViewById(R.id.profile_pic);
+            profilePic.setImageBitmap(imageResized);
+            return view;
         }
         if (EnumMenuItem.IMPRESSUM.equals(savedInstanceState.get(ARG_MENU_ITEM_NUMBER)))
         {
-            return inflater.inflate(R.layout.result_list, container, false);
+            View view = inflater.inflate(R.layout.impressum_fragment, container, false);
+            Bitmap image = BitmapFactory.decodeResource(getActivity().getResources(), R.drawable.teambild);
+            Bitmap imageResized = Bitmap.createScaledBitmap(image, (int) (image.getWidth() *  0.25), (int) (image.getHeight() * 0.25), true);
+            ImageView profilePic = (ImageView) view.findViewById(R.id.teambild);
+            profilePic.setImageBitmap(imageResized);
+            return view;
         }
         if (EnumMenuItem.HILFE.equals(savedInstanceState.get(ARG_MENU_ITEM_NUMBER)))
         {
