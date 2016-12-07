@@ -1,8 +1,11 @@
 package com.genosharing.gwyn;
 
+import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -38,11 +41,7 @@ public class NavigatorActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-//        ResultListArrayAdapter adapter = new ResultListArrayAdapter(this,
-//                R.layout.single_result, DummyData.getOffers(this));
-//
-//        ListView listView = (ListView) findViewById(R.id.resultList);
-//        listView.setAdapter(adapter);
+        navigateTo(EnumMenuItem.ERGEBNISSE);
     }
 
     private void addDrawerItems() {
@@ -50,7 +49,8 @@ public class NavigatorActivity extends AppCompatActivity {
         EnumMenuItem[] items = EnumMenuItem.values();
         for (EnumMenuItem item: items)
         {
-            menuItems.add(item.getBezeichnung());
+            if (item.isVisible())
+                menuItems.add(item.getBezeichnung());
         }
         mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, menuItems);
         mDrawerList.setAdapter(mAdapter);
@@ -76,25 +76,29 @@ public class NavigatorActivity extends AppCompatActivity {
         mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Create a new fragment and specify the planet to show based on position
-                Fragment fragment = new MenuItemFragment();
-                Bundle args = new Bundle();
-                args.putSerializable(MenuItemFragment.ARG_MENU_ITEM_NUMBER, EnumMenuItem.getItemByPosition(position));
-                fragment.setArguments(args);
-
-
-                // Insert the fragment by replacing any existing fragment
-                FragmentManager fragmentManager = getFragmentManager();
-                fragmentManager.beginTransaction()
-                        .replace(R.id.content_frame, fragment)
-                        .commit();
+                EnumMenuItem selectedItem = EnumMenuItem.getItemByPosition(position);
+                navigateTo(selectedItem);
 
                 // Highlight the selected item, update the title, and close the drawer
                 mDrawerList.setItemChecked(position, true);
-                getSupportActionBar().setTitle(menuItems.get(position));
                 mDrawerLayout.closeDrawer(mDrawerList);
             }
         });
+    }
+
+    public void navigateTo(EnumMenuItem item) {
+        Fragment fragment = new MenuItemFragment();
+        Bundle args = new Bundle();
+        args.putSerializable(MenuItemFragment.ARG_MENU_ITEM_NUMBER, item);
+        fragment.setArguments(args);
+
+
+        // Insert the fragment by replacing any existing fragment
+        FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.content_frame, fragment)
+                .commit();
+        getSupportActionBar().setTitle(item.getBezeichnung());
     }
 
     @Override
@@ -112,11 +116,5 @@ public class NavigatorActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public void showDetails(View view)
-    {
-        Intent intent = new Intent(this, DetailActivity.class);
-        this.startActivity(intent);
     }
 }

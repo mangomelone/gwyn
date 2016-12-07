@@ -40,6 +40,7 @@ public class AdvertisementActivity extends Activity {
     {
         Intent intent = new Intent(this, NavigatorActivity.class);
         startActivity(intent);
+
     }
 
 }

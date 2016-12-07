@@ -5,17 +5,21 @@ package com.genosharing.gwyn;
  */
 
 public enum EnumMenuItem {
-    ENTDECKEN("Entdecken", 0),
-    KATEGORIEN("Kategorien", 1),
-    PROFIL("Mein Profil", 2),
-    IMPRESSUM("Impressum", 3),
-    HILFE("Hilfe", 4);
+    ENTDECKEN("Entdecken", 0, true),
+    KATEGORIEN("Kategorien", 1, true),
+    PROFIL("Mein Profil", 2, true),
+    IMPRESSUM("Impressum", 3, true),
+    HILFE("Hilfe", 4, true),
+    ERGEBNISSE("Suchergebnisse", 5, false),
+    DETAIL("Detailansicht", 6, false);
 
     private final String bezeichnung;
     private final int code;
-    EnumMenuItem(String bezeichnung, int code) {
+    private final boolean visible;
+    EnumMenuItem(String bezeichnung, int code, boolean visible) {
         this.bezeichnung = bezeichnung;
         this.code = code;
+        this.visible = visible;
     }
 
     public String getBezeichnung() {
@@ -24,6 +28,11 @@ public enum EnumMenuItem {
 
     public int getCode() {
         return code;
+    }
+
+    public boolean isVisible()
+    {
+        return visible;
     }
 
     public static EnumMenuItem getItemByPosition(int position)
