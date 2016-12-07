@@ -63,7 +63,8 @@
         android:id="@+id/ratingBar"
         android:numStars="5"
         android:stepSize="1"
-        android:theme="@style/RatingBar"/>
+        android:theme="@style/RatingBar"
+        style="@style/Widget.AppCompat.RatingBar.Small" />
     </LinearLayout>
 
 </LinearLayout>
