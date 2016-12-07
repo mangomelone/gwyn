@@ -27,10 +27,11 @@
         <activity
             android:name=".ResultsActivity"
             android:label="Ergebnisse"
+            android:parentActivityName=".AdvertisementActivity"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
-            android:name=".Detail"
+            android:name=".DetailActivity"
             android:label="Ergebnisse"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>

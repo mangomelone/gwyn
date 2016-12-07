@@ -2,4 +2,11 @@
     <string name="app_name">GWYN</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="productImage">Bild des Produktes</string>
+    <string name="resultsHeader">Suchergebnisse</string>
+    <array name="menuItems">
+        <item>Item 1</item>
+        <item>Item 2</item>
+    </array>
+    <string name="drawer_open">Menü öffnen</string>
+    <string name="drawer_close">Menü schließen</string>
 </resources>

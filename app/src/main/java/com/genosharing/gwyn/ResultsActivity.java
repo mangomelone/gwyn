@@ -11,6 +11,7 @@ public class ResultsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.results);
+        getActionBar().setDisplayHomeAsUpEnabled(true);
 
         ResultListArrayAdapter adapter = new ResultListArrayAdapter(this,
                 R.layout.single_result, DummyData.getOffers(this));

@@ -34,6 +34,9 @@ public class DummyData {
         offers.add(offer1);
         offers.add(offer2);
         offers.add(offer3);
+        offers.add(offer1);
+        offers.add(offer2);
+        offers.add(offer3);
         return offers;
     }
 
