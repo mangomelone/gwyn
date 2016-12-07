@@ -38,7 +38,7 @@ public class AdvertisementActivity extends Activity {
 
     public void showResults(View view)
     {
-        Intent intent = new Intent(this, ResultsActivity.class);
+        Intent intent = new Intent(this, NavigatorActivity.class);
         startActivity(intent);
     }
 

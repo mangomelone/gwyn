@@ -23,14 +23,12 @@
             android:label="Suche Produkt"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".ResultsActivity"
+            android:name=".NavigatorActivity"
             android:label="Suchergebnisse"></activity>
         <activity
             android:name=".DetailActivity"
             android:label="Ergebnisse"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".CategoriesActivity"
-            android:label="Kategorien"></activity>
     </application>
 
 </manifest>

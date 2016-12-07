@@ -35,12 +35,7 @@ android:layout_height="match_parent">
     android:layout_width="match_parent"
     android:layout_height="match_parent" />
 <!-- The navigation drawer -->
-<android.support.v7.widget.Toolbar
-    android:id="@+id/toolbar"
-    android:layout_width="match_parent"
-    android:layout_height="?attr/actionBarSize"
-    android:background="?attr/colorPrimary" />
-<ListView android:id="@+id/left_drawer"
+    <ListView android:id="@+id/left_drawer"
     android:layout_width="240dp"
     android:layout_height="match_parent"
     android:layout_gravity="start"
