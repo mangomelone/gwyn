@@ -115,9 +115,9 @@ public class MenuItemFragment extends Fragment {
             ausleihen.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(getActivity(), "Test", Toast.LENGTH_SHORT);
-                    //NavigatorActivity activity = (NavigatorActivity) getActivity();
-                    //activity.navigateTo(EnumMenuItem.BUCHUNG_ABGESCHLOSSEN);
+                    //Toast.makeText(getActivity(), "Test", Toast.LENGTH_SHORT).show();
+                    NavigatorActivity activity = (NavigatorActivity) getActivity();
+                    activity.navigateTo(EnumMenuItem.BUCHUNG_ABGESCHLOSSEN);
                 }
             });
             return view;
