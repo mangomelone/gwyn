@@ -55,20 +55,24 @@
         android:contentDescription="@string/productImage"
         android:src="@mipmap/ic_launcher"
         android:layout_gravity="center_horizontal"
-        android:padding="@dimen/icon_margin" />
+        android:paddingLeft="@dimen/icon_margin"
+        android:paddingRight="@dimen/icon_margin"
+        android:paddingTop="30dp" />
 
     <RatingBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/ratingBar"
-        android:numStars="7"
+        android:numStars="5"
         android:stepSize="1"
         android:theme="@style/RatingBar"
         android:layout_gravity="center_horizontal"
-        android:paddingBottom="@dimen/icon_margin"
-        android:paddingLeft="@dimen/icon_margin"
-        android:paddingRight="@dimen/icon_margin"
-        style="@style/Widget.AppCompat.RatingBar.Small" />
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingBottom="30dp"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:scaleX="0.5"
+        android:scaleY="0.5" />
     </LinearLayout>
 
 </LinearLayout>
