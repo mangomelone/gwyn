@@ -22,9 +22,9 @@ public class DummyData {
         Price _20EuroProWoche = new Price(BigDecimal.valueOf(20), Currency.getInstance(Locale.GERMANY), "Woche");
         double scale = 0.5;
         double profileScale = 0.25;
-        Product huepfburg = new Product("Hüpfburg", "Ganz wunderbare Hüpfburg", createBitmap(activity, R.drawable.suchergebnis1, scale));
+        Product huepfburg = new Product("Hüpfhaus", "Ganz wunderbare Hüpfburg", createBitmap(activity, R.drawable.suchergebnis1, scale));
         Product huepfinsel = new Product("Hüpfinsel", "Ganz wunderbare Hüpfinsel", createBitmap(activity, R.drawable.suchergebnis2, scale));
-        Product huepfhaus = new Product("Hüpfhaus", "Ganz wunderbares Hüpfhaus", createBitmap(activity, R.drawable.suchergebnis3, scale));
+        Product huepfhaus = new Product("Hüpfburg", "Ganz wunderbares Hüpfhaus", createBitmap(activity, R.drawable.suchergebnis3, scale));
         Rating low = new Rating(2);
         Rating middle = new Rating(4);
         Rating high = new Rating(5);
