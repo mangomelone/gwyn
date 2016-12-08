@@ -66,7 +66,7 @@ public class MenuItemFragment extends Fragment {
         }
         if (EnumMenuItem.STATIONS.equals(savedInstanceState.get(ARG_MENU_ITEM_NUMBER)))
         {
-            return inflater.inflate(R.layout.categories, container, false);
+            return inflater.inflate(R.layout.stations_fragments, container, false);
         }
         if (EnumMenuItem.PROFIL.equals(savedInstanceState.get(ARG_MENU_ITEM_NUMBER)))
         {
