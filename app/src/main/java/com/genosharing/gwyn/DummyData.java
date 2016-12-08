@@ -26,7 +26,7 @@ public class DummyData {
         Product huepfinsel = new Product("Hüpfinsel", "Ganz wunderbare Hüpfinsel", createBitmap(activity, R.drawable.suchergebnis2, scale));
         Product huepfhaus = new Product("Hüpfhaus", "Ganz wunderbares Hüpfhaus", createBitmap(activity, R.drawable.suchergebnis3, scale));
         Rating low = new Rating(2);
-        Rating middle = new Rating(3);
+        Rating middle = new Rating(4);
         Rating high = new Rating(5);
         User verkaeufer1 = new User("Max", "Musterverkäufer", createBitmap(activity, R.drawable.suchergebnis1potrait, profileScale), high);
         User verkaeufer2 = new User("Max", "Musterverkäufer", createBitmap(activity, R.drawable.suchergebnis2potrait, profileScale), middle);
