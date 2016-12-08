@@ -4,16 +4,16 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/gina_yas"
-        android:id="@+id/imageView10" />
+    <!--<ImageView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:srcCompat="@drawable/gina_yas"-->
+        <!--android:id="@+id/imageView10" />-->
 
-    <com.genosharing.gwyn.GIFView
-        android:id="@+id/gif_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <!--<com.genosharing.gwyn.GIFView-->
+        <!--android:id="@+id/gif_view"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" />-->
 
     <TextView
         android:text="Geschafft!"

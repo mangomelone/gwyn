@@ -11,9 +11,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RatingBar;
+import android.widget.Toast;
 
 /**
  * Created by Blackrental on 07.12.2016.
@@ -100,6 +103,7 @@ public class MenuItemFragment extends Fragment {
                                                     activity.navigateTo(EnumMenuItem.DETAIL);
                                                 }
                                             });
+            //RatingBar ratingBar = (RatingBar) view.findViewById(R.id.ratingBar);
             return view;
         }
         if (EnumMenuItem.DETAIL.equals(savedInstanceState.get(ARG_MENU_ITEM_NUMBER))) {
@@ -107,6 +111,15 @@ public class MenuItemFragment extends Fragment {
             ViewPager mViewPager = (ViewPager) view.findViewById(R.id.viewPageAndroid);
             AndroidImageAdapter adapterView = new AndroidImageAdapter(getActivity());
             mViewPager.setAdapter(adapterView);
+            Button ausleihen = (Button) view.findViewById(R.id.ausleih_button);
+            ausleihen.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(getActivity(), "Test", Toast.LENGTH_SHORT);
+                    //NavigatorActivity activity = (NavigatorActivity) getActivity();
+                    //activity.navigateTo(EnumMenuItem.BUCHUNG_ABGESCHLOSSEN);
+                }
+            });
             return view;
         }
         if (EnumMenuItem.BUCHUNG_ABGESCHLOSSEN.equals(savedInstanceState.get(ARG_MENU_ITEM_NUMBER)))
