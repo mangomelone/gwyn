@@ -28,9 +28,9 @@ public class DummyData {
         Rating low = new Rating(2);
         Rating middle = new Rating(4);
         Rating high = new Rating(5);
-        User verkaeufer1 = new User("Max", "Musterverkäufer", createBitmap(activity, R.drawable.suchergebnis1potrait, profileScale), high);
-        User verkaeufer2 = new User("Max", "Musterverkäufer", createBitmap(activity, R.drawable.suchergebnis2potrait, profileScale), middle);
-        User verkaeufer3 = new User("Max", "Musterverkäufer", createBitmap(activity, R.drawable.suchergebnis3portrait, profileScale), low);
+        User verkaeufer1 = new User("Max", "Musterverkäufer", createBitmap(activity, R.drawable.suchergebnis1potrait, profileScale), middle, activity.getString(R.string.userprofil));
+        User verkaeufer2 = new User("Max", "Musterverkäufer", createBitmap(activity, R.drawable.suchergebnis2potrait, profileScale), high, activity.getString(R.string.userprofil));
+        User verkaeufer3 = new User("Max", "Musterverkäufer", createBitmap(activity, R.drawable.suchergebnis3portrait, profileScale), low, activity.getString(R.string.userprofil));
         Offer offer1 = new Offer(huepfburg, _20EuroProWoche, verkaeufer1);
         Offer offer2 = new Offer(huepfinsel, _20EuroProWoche, verkaeufer3);
         Offer offer3 = new Offer(huepfhaus, _10EuroProTag, verkaeufer2);

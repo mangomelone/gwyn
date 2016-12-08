@@ -19,6 +19,8 @@ import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
+import java.util.List;
+
 /**
  * Created by Blackrental on 07.12.2016.
  */
@@ -104,7 +106,6 @@ public class MenuItemFragment extends Fragment {
                                                     activity.navigateTo(EnumMenuItem.DETAIL);
                                                 }
                                             });
-            //RatingBar ratingBar = (RatingBar) view.findViewById(R.id.ratingBar);
             return view;
         }
         if (EnumMenuItem.DETAIL.equals(savedInstanceState.get(ARG_MENU_ITEM_NUMBER))) {
@@ -112,11 +113,17 @@ public class MenuItemFragment extends Fragment {
             ViewPager mViewPager = (ViewPager) view.findViewById(R.id.viewPageAndroid);
             AndroidImageAdapter adapterView = new AndroidImageAdapter(getActivity());
             mViewPager.setAdapter(adapterView);
+            List<Offer> offers = DummyData.getOffers(getActivity());
+            Bitmap image = BitmapFactory.decodeResource(getActivity().getResources(), R.drawable.profilbild);
+            Bitmap imageResized = Bitmap.createScaledBitmap(image, (int) (image.getWidth() *  0.25), (int) (image.getHeight() * 0.25), true);
+            ImageView profilePic = (ImageView) view.findViewById(R.id.detail_profile_pic);
+            profilePic.setImageBitmap(offers.get(2).getVendor().getProfilePic());
+            RatingBar ratingBar = (RatingBar) view.findViewById(R.id.detail_rating);
+            ratingBar.setRating(offers.get(2).getVendor().getRating().getValue());
             Button ausleihen = (Button) view.findViewById(R.id.ausleih_button);
             ausleihen.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //Toast.makeText(getActivity(), "Test", Toast.LENGTH_SHORT).show();
                     NavigatorActivity activity = (NavigatorActivity) getActivity();
                     activity.navigateTo(EnumMenuItem.BUCHUNG_ABGESCHLOSSEN);
                 }

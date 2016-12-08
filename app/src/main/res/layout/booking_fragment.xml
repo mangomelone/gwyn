@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <pl.droidsonroids.gif.GifImageView
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="30px"
-        android:src="@drawable/gina_yas" />
+        app:srcCompat="@drawable/happyhop_huepfburg_transparent"
+        android:id="@+id/imageView5"
+        android:paddingBottom="50px"
+        android:paddingTop="80px" />
 
     <TextView
         android:text="Geschafft!"
@@ -31,7 +38,8 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingBottom="80px">
 
         <ImageView
             android:layout_width="match_parent"
@@ -67,5 +75,6 @@
             android:paddingBottom="@dimen/icon_margin"
             android:paddingTop="@dimen/icon_margin"
             android:paddingRight="@dimen/icon_margin" />
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</ScrollView>

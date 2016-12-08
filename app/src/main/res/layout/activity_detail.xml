@@ -30,109 +30,106 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Hüpfburg"
-        android:id="@+id/textView"
-        style="@style/Header"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hüpfburg"
+                android:id="@+id/textView"
+                style="@style/Header" />
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewPageAndroid"
-        android:layout_width="fill_parent"
-        android:layout_height="230dp"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"/>
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewPageAndroid"
+                android:layout_width="fill_parent"
+                android:layout_height="230dp"
+                android:layout_below="@+id/textView"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Beschreibung"
-        android:id="@+id/textView3"
-        android:textColor="@android:color/black"
-        android:textSize="15dp"
-        android:textStyle="bold"
-        android:paddingTop="5dp"
-        android:layout_below="@+id/viewPageAndroid"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+            <TextView
+                style="@style/HeaderOnPage"
+                android:text="Beschreibung"
+                android:id="@+id/textView3" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text=" - Ideal für Kindergeburtstage\n - neuwertige und luxuriöse Hüpfburg \n - Stressfreie Abholung direkt bei Ihrer VR-Filiale"
-        android:id="@+id/textView2"
-        android:layout_below="@+id/textView3"
-        android:textColor="@android:color/black"
-        android:textSize="15dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+            <TextView
+                style="@style/BasicText"
+                android:text=" - Ideal für Kindergeburtstage\n - Neuwertige und luxuriöse Hüpfburg \n - Stressfreie Abholung direkt bei Ihrer VR-Filiale\n - Versicherung durch die R+V inklusive"
+                android:id="@+id/textView2" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Zubehör inklusive"
-        android:id="@+id/textView4"
-        android:textColor="@android:color/black"
-        android:textSize="15dp"
-        android:textStyle="bold"
-        android:paddingTop="5dp"
-        android:layout_below="@+id/textView2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+            <TextView
+                style="@style/HeaderOnPage"
+                android:text="Zubehör inklusive"
+                android:id="@+id/textView4" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text=" - Flickset\n - Anhänger zum Transport"
-        android:id="@+id/textView5"
-        android:layout_below="@+id/textView4"
-        android:textColor="@android:color/black"
-        android:textSize="15dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+            <TextView
+                style="@style/BasicText"
+                android:text=" - Flickset\n - Anhänger zum Transport"
+                android:id="@+id/textView5" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Zusatzleistungen buchbar"
-        android:id="@+id/textView6"
-        android:textColor="@android:color/black"
-        android:textSize="15dp"
-        android:textStyle="bold"
-        android:paddingTop="5dp"
-        android:layout_below="@+id/textView5"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+            <TextView
+                style="@style/HeaderOnPage"
+                android:text="Zusatzleistungen buchbar"
+                android:id="@+id/textView6" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text=" - Versicherung von R+V\n   zum Sonderpreis für VR-Kunden\n - High-Performance Aufpumpanlage"
-        android:id="@+id/textView7"
-        android:layout_below="@+id/textView6"
-        android:textColor="@android:color/black"
-        android:textSize="15dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+            <TextView
+                style="@style/BasicText"
+                android:text=" - High-Performance Aufpumpanlage"
+                android:id="@+id/textView7" />
+
+            <TextView
+                style="@style/HeaderOnPage"
+                android:text="Anbieter: Theo Bender"
+                android:id="@+id/text_view_anbieter" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="20dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/detail_profile_pic"
+                        android:contentDescription="@string/productImage"
+                        android:src="@mipmap/ic_launcher"
+                        android:layout_gravity="center_horizontal"
+                        android:paddingLeft="@dimen/icon_margin"
+                        android:paddingRight="@dimen/icon_margin"
+                        android:paddingTop="30dp" />
+
+                    <RatingBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/detail_rating"
+                        android:numStars="5"
+                        android:stepSize="1"
+                        android:theme="@style/RatingBar"
+                        android:layout_gravity="center_horizontal"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:paddingBottom="30dp"
+                        style="@style/Widget.AppCompat.RatingBar.Small"
+                        android:scaleX="0.5"
+                        android:scaleY="0.5" />
+                </LinearLayout>
+
+                    <TextView
+                        style="@style/BasicText"
+                        android:text="@string/userprofil"
+                        android:id="@+id/detail_profile_description"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
 
         </LinearLayout>
     </ScrollView>

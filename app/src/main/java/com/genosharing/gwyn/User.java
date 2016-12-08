@@ -12,12 +12,14 @@ public class User {
     private String nachname;
     private Bitmap profilePic;
     private Rating rating;
+    private String description;
 
-    public User(String vorname, String nachname, Bitmap profilePic, Rating rating) {
+    public User(String vorname, String nachname, Bitmap profilePic, Rating rating, String description) {
         this.vorname = vorname;
         this.nachname = nachname;
         this.profilePic = profilePic;
         this.rating = rating;
+        this.description = description;
     }
 
     public String getVorname() {
@@ -50,5 +52,13 @@ public class User {
 
     public void setRating(Rating rating) {
         this.rating = rating;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
