@@ -28,7 +28,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/beschreibung6"
+        app:srcCompat="@drawable/transparentes_logo"
         android:id="@+id/gwyn_logo" />
 
 </LinearLayout>
