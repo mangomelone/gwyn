@@ -21,10 +21,10 @@
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:id="@+id/imageView"
-         android:layout_gravity="bottom"
-         android:layout_alignParentBottom="true"
+         android:layout_gravity="top"
+         android:layout_alignParentTop="true"
          android:layout_alignParentRight="true"
-         android:layout_alignParentEnd="true" />
+        />
 
      <ImageView
          android:layout_width="wrap_content"
@@ -60,6 +60,62 @@
          android:layout_below="@+id/imageView3"
          android:layout_centerHorizontal="true"
          android:onClick="showResults"/>
+
+
+
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:textAppearance="?android:attr/textAppearanceMedium"
+         android:text="Am häufigsten entliehen"
+         android:id="@+id/scrollViewEntliehen"
+         android:layout_above="@+id/horizontalScrollViewBewertet"
+         android:layout_alignParentLeft="true"
+         android:layout_alignParentStart="true" />
+
+     <HorizontalScrollView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:id="@+id/horizontalScrollViewBewertet"
+         android:layout_above="@+id/scrollViewBewertet"
+         android:layout_centerHorizontal="true"
+         android:layout_marginBottom="53dp" >
+
+         <LinearLayout
+             android:orientation="horizontal"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:id="@+id/linearLayoutBewertet">
+         </LinearLayout>
+     </HorizontalScrollView>
+
+
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:textAppearance="?android:attr/textAppearanceMedium"
+         android:text="Am besten bewertet"
+         android:id="@+id/scrollViewBewertet"
+         android:layout_above="@+id/horizontalScrollViewEntliehen"
+         android:layout_alignParentLeft="true"
+         android:layout_alignParentStart="true" />
+
+     <HorizontalScrollView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:id="@+id/horizontalScrollViewEntliehen"
+         android:layout_alignParentBottom="true"
+         android:layout_centerHorizontal="true"
+         android:layout_marginBottom="45dp" >
+
+         <LinearLayout
+             android:orientation="horizontal"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:id="@+id/linearLayoutEntliehen">
+         </LinearLayout>
+     </HorizontalScrollView>
+
 
 
  </RelativeLayout>
