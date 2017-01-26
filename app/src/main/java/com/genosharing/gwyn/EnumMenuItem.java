@@ -13,7 +13,8 @@ public enum EnumMenuItem {
     HILFE("Hilfe", 5, true),
     ERGEBNISSE("Suchergebnisse", 6, false),
     DETAIL("Detailansicht", 7, false),
-    BUCHUNG_ABGESCHLOSSEN("Buchung abgeschlossen", 8, false);
+    BUCHUNG_ABGESCHLOSSEN("Buchung abgeschlossen", 8, false),
+    VERFUEGBARKEIT("Verfügbarkeit prüfen", 9, false);
 
     private final String bezeichnung;
     private final int code;

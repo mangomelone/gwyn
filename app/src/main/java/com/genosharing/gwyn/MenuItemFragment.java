@@ -128,11 +128,32 @@ public class MenuItemFragment extends Fragment {
                     activity.navigateTo(EnumMenuItem.BUCHUNG_ABGESCHLOSSEN);
                 }
             });
+            Button verfuegbarkeit = (Button) view.findViewById(R.id.verfuegbarkeit_button);
+            verfuegbarkeit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    NavigatorActivity activity = (NavigatorActivity) getActivity();
+                    activity.navigateTo(EnumMenuItem.VERFUEGBARKEIT);
+                }
+            });
             return view;
         }
         if (EnumMenuItem.BUCHUNG_ABGESCHLOSSEN.equals(savedInstanceState.get(ARG_MENU_ITEM_NUMBER)))
         {
             return inflater.inflate(R.layout.booking_fragment, container, false);
+        }
+        if (EnumMenuItem.VERFUEGBARKEIT.equals(savedInstanceState.get(ARG_MENU_ITEM_NUMBER)))
+        {
+            View view = inflater.inflate(R.layout.verfuegbarkeit_fragment, container, false);
+            Button auswahl = (Button) view.findViewById(R.id.auswahl_button);
+            auswahl.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    NavigatorActivity activity = (NavigatorActivity) getActivity();
+                    activity.navigateTo(EnumMenuItem.DETAIL);
+                }
+            });
+            return view;
         }
         return null;
     }
