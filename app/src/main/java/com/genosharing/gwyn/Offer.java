@@ -1,16 +1,20 @@
 package com.genosharing.gwyn;
 
+import java.util.List;
+
 /**
  * Created by hackathon on 06.12.16.
  */
 public class Offer {
 
     private Product product;
+    private List<String> zubehoerListe;
     private Price price;
     private User vendor;
 
-    public Offer(Product product, Price price, User vendor) {
+    public Offer(Product product, List<String> zubehoerListe, Price price, User vendor) {
         this.product = product;
+        this.zubehoerListe = zubehoerListe;
         this.price = price;
         this.vendor = vendor;
     }
@@ -21,6 +25,14 @@ public class Offer {
 
     public void setProduct(Product product) {
         this.product = product;
+    }
+
+    public List<String> getZubehoerListe() {
+        return zubehoerListe;
+    }
+
+    public void setZubehoerListe(List<String> zubehoerListe) {
+        this.zubehoerListe = zubehoerListe;
     }
 
     public Price getPrice() {

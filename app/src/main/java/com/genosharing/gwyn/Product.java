@@ -3,6 +3,8 @@ package com.genosharing.gwyn;
 import android.graphics.Bitmap;
 import android.media.Image;
 
+import java.util.List;
+
 /**
  * Created by hackathon on 06.12.16.
  */

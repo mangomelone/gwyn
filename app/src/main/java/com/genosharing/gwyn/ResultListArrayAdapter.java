@@ -34,14 +34,19 @@ public class ResultListArrayAdapter extends ArrayAdapter {
 
         ImageView image = (ImageView) view.findViewById(R.id.single_result_image);
         image.setImageBitmap(offer.getProduct().getImage());
+
         TextView title = (TextView) view.findViewById(R.id.single_result_title);
         title.setText(offer.getProduct().getName());
+
         TextView price = (TextView) view.findViewById(R.id.single_result_price);
         price.setText(offer.getPrice().toString());
+
         ImageView profilePic = (ImageView) view.findViewById(R.id.single_result_profile_pic);
         profilePic.setImageBitmap(offer.getVendor().getProfilePic());
+
         RatingBar rating = (RatingBar) view.findViewById(R.id.ratingBar);
         rating.setRating(offer.getVendor().getRating().getValue());
+
         return view;
     }
 }

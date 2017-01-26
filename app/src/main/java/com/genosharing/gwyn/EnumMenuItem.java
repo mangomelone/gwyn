@@ -14,7 +14,8 @@ public enum EnumMenuItem {
     ERGEBNISSE("Suchergebnisse", 6, false),
     DETAIL("Detailansicht", 7, false),
     BUCHUNG_ABGESCHLOSSEN("Buchung abgeschlossen", 8, false),
-    VERFUEGBARKEIT("Verfügbarkeit prüfen", 9, false);
+    VERFUEGBARKEIT("Verfügbarkeit prüfen", 9, false),
+    CHECKOUT("Checkout", 10, false);
 
     private final String bezeichnung;
     private final int code;

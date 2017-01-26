@@ -61,4 +61,9 @@ public class User {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public String getName()
+    {
+        return this.vorname + " " + this.nachname;
+    }
 }
