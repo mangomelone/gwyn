@@ -25,4 +25,47 @@
         Ob Firmenevent, Schulfest oder Kindergeburtstag – wir haben das richtige für Euch.
         Günstig, freundlich und mit bay´rischem Charme.
     </string>
+    <string name="lorem_ipsum">
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+    </string>
+    <string name="desc_tesla">
+        Grüne Welle für Sportwagen-Freunde!
+        Dieser Elektro-Renner setzt auch Umweltschützer unter Strom. Kein Wunder, denn er ist 100 \%% Sportwagen bei 0 \%% Emissionen. Der Tesla S 85 beweist eindrucksvoll, dass ökologisch ganz schön "spannend" sein kann. Denn dank 367 PS und 440 Newtonmeter Drehmoment beschleunigt der Tesla S 85 tatsächlich wie der Blitz. Und wenn Sie im Tesla um die Ecke biegen, werden selbst Grün-Wähler rot vor Neid.
+        Sparen Sie sich die Fahrt zur Tankstelle und tanken Sie im Tesla S 85 eine Extraportion Fortschritt und Fahrspaß.
+        Teilnahmebedingungen
+        Mindestalter 21 Jahre
+        Gültiger PKW-Führerschein
+        3 Jahre Fahrpraxis
+        Kaution zwischen 1.000 € - 1.500 € (je nach Standort)
+    </string>
+    <string name="desc_partykuehlschrank">
+        Der Mittelpunkt jeder Party - Der mobile Kühlschrank mit gebürstetem Edelstahl-Korpus
+        Wenn viele Gäste zu bewirten sind, wird oftmals der Platz im Kühlschrank knapp und Sie müssen ständig zwischen Küche und Party pendeln, um für Nachschub zu sorgen. Doch damit ist jetzt Schluss: Der Party-Cooler bietet großbemessene 58-Liter-Kühlraum. Mit seinem eleganten Gehäuse aus gebürstetem Edelstahl wirkt er sehr edel und passt sich perfekt jedem Interieur an. Leicht laufende Rollen machen den Getränkekühler mobil, so ist er immer dort zur Stelle, wo Sie ihn brauchen. Während Sie sich ganz entspannt der Konversation mit Ihren Gästen widmen, versieht der Party-Cooler im Hintergrund seinen Dienst: In dem hochwertigen Edelstahl-Party-Cooler mit zwei Sicherheitsglas-Klapp-Türen finden bis zu 76 Getränkedosen oder 20 Flaschen Platz. Das leistungsstarke Kühlaggregat hält alles wohltemperiert bei einem bemerkenswert niedrigen Energieverbrauch von nur 0,38 kWh in 24 Stunden. Zwei einhängbare Ablagen (L 34 x B 24 cm) aus robustem Kunststoff bieten ausreichend Platz, um Gläser abzustellen oder Drinks zu mixen. Im praktischen Chrom-Flaschenkorb finden drei Flaschen Platz. 30 kg, H 82 cm, Ø 60 cm. Energie-Effizienzklasse A. FCKW-/CKW-frei. 230 V.
+    </string>
+    <string name="desc_karaoke">
+        Stilvolle Karaoke-Standanlage mit BT-Konnektivität, formatstarkem Topdeck CD-Player, integriertem 7" TFT-Farbdisplay, Build-In Speakern (40 W RMS / 80 W max.) sowie 2 Mikrofonen.
+        Let's get this party started! Die Karaokemaschine macht aus jedem Zimmer eine Festivalbühne. Mitsingen war gestern, heute ist Big Karaoke angesagt!
+        Für die richtige Disco-Atmosphäre sorgen darüber hinaus die eingebauten LED-Licht-Effekte, die die auna KaraBig Karaokemaschine farbenfroh erstrahlen lassen. So wird jede Houseparty zum Karaoke-Knaller!
+    </string>
+    <string name="desc_snowboard">
+        SANCHEZ/RHYTHM SET. Freestyle Board und Bindung im Set; das weiter entwickelte, skate-inspirierte Snowboard vereint alle beliebten Features der Vorgängermodelle, inklusive Rocket Science; ein kürzeres und breiteres Design sorgt für einen wendigen und gleichzeitig stabilen Ride; mit fehlerverzeihendem Flat Out Rocker und Aspen Strong Core für mehr Pop.
+    </string>
+    <string name="desc_bohrmaschine">
+        Leistung: 1000 Watt
+        Drehzahlvorwahl
+        VTC-Vollwellenelektronik
+        Wiederanlaufschutz
+        inkl. Zusatzhandgriff, Tiefenanschlag, Koffer
+
+        Funktionen und Ausstattung
+        Farbe: grün
+        Werkzeugaufnahme: Drehbohrfutter
+        Drehzahlregelelektronik
+        Rechts-/Links-Lauf
+        Tiefenanschlag
+        Zusatzhandgriff
+        Softgrip
+        Vario-Tacho-Constamatic (VTC)-Vollwellenelektronik
+        Metabo S-automatic Sicherheitskupplung
+    </string>
 </resources>

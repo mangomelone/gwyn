@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RatingBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
@@ -102,6 +103,7 @@ public class MenuItemFragment extends Fragment {
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                                 @Override
                                                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                                    Offer detail = (Offer) parent.getItemAtPosition(position);
                                                     NavigatorActivity activity = (NavigatorActivity) getActivity();
                                                     activity.navigateTo(EnumMenuItem.DETAIL);
                                                 }
@@ -113,21 +115,42 @@ public class MenuItemFragment extends Fragment {
             ViewPager mViewPager = (ViewPager) view.findViewById(R.id.viewPageAndroid);
             AndroidImageAdapter adapterView = new AndroidImageAdapter(getActivity());
             mViewPager.setAdapter(adapterView);
-            List<Offer> offers = DummyData.getOffers(getActivity());
-            Bitmap image = BitmapFactory.decodeResource(getActivity().getResources(), R.drawable.profilbild);
-            Bitmap imageResized = Bitmap.createScaledBitmap(image, (int) (image.getWidth() *  0.25), (int) (image.getHeight() * 0.25), true);
+
+            List<Offer> offers = DummyData.getMeistGeliehen(getActivity());
+            Offer angebot = offers.get(2);
+
+            ExpandableTextView beschreibung = (ExpandableTextView) view.findViewById(R.id.txt_beschreibung);
+            beschreibung.setText(angebot.getProduct().getDescription());
+
+            TextView zubehoer = (TextView) view.findViewById(R.id.txt_zubehoer);
+            StringBuilder builder = new StringBuilder();
+            for (String zubehoerElement : angebot.getZubehoerListe())
+            {
+                builder.append("- " + zubehoerElement + "\n");
+            }
+            zubehoer.setText(builder.toString());
+
             ImageView profilePic = (ImageView) view.findViewById(R.id.detail_profile_pic);
-            profilePic.setImageBitmap(offers.get(2).getVendor().getProfilePic());
+            profilePic.setImageBitmap(angebot.getVendor().getProfilePic());
+
             RatingBar ratingBar = (RatingBar) view.findViewById(R.id.detail_rating);
-            ratingBar.setRating(offers.get(2).getVendor().getRating().getValue());
+            ratingBar.setRating(angebot.getVendor().getRating().getValue());
+
+            TextView anbieter = (TextView) view.findViewById(R.id.lbl_anbieter);
+            anbieter.setText("Anbieter: " + angebot.getVendor().getName());
+
+            TextView anbieter_desc = (TextView) view.findViewById(R.id.detail_profile_description);
+            anbieter_desc.setText(angebot.getVendor().getDescription());
+
             Button ausleihen = (Button) view.findViewById(R.id.ausleih_button);
             ausleihen.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     NavigatorActivity activity = (NavigatorActivity) getActivity();
-                    activity.navigateTo(EnumMenuItem.BUCHUNG_ABGESCHLOSSEN);
+                    activity.navigateTo(EnumMenuItem.CHECKOUT);
                 }
             });
+
             Button verfuegbarkeit = (Button) view.findViewById(R.id.verfuegbarkeit_button);
             verfuegbarkeit.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -136,6 +159,7 @@ public class MenuItemFragment extends Fragment {
                     activity.navigateTo(EnumMenuItem.VERFUEGBARKEIT);
                 }
             });
+
             return view;
         }
         if (EnumMenuItem.BUCHUNG_ABGESCHLOSSEN.equals(savedInstanceState.get(ARG_MENU_ITEM_NUMBER)))
@@ -151,6 +175,19 @@ public class MenuItemFragment extends Fragment {
                 public void onClick(View v) {
                     NavigatorActivity activity = (NavigatorActivity) getActivity();
                     activity.navigateTo(EnumMenuItem.DETAIL);
+                }
+            });
+            return view;
+        }
+        if (EnumMenuItem.CHECKOUT.equals(savedInstanceState.get(ARG_MENU_ITEM_NUMBER)))
+        {
+            View view = inflater.inflate(R.layout.checkout_fragment, container, false);
+            Button buchen = (Button) view.findViewById(R.id.buchen_button);
+            buchen.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    NavigatorActivity activity = (NavigatorActivity) getActivity();
+                    activity.navigateTo(EnumMenuItem.BUCHUNG_ABGESCHLOSSEN);
                 }
             });
             return view;

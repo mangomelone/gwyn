@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingLeft="5dp"
@@ -54,16 +55,18 @@
                 android:text="Beschreibung"
                 android:id="@+id/textView3" />
 
-            <TextView
-                style="@style/BasicText"
-                android:text=" - Ideal für Kindergeburtstage\n - Neuwertige und luxuriöse Hüpfburg \n - Stressfreie Abholung direkt bei Ihrer VR-Filiale\n - Versicherung durch die R+V inklusive"
-                android:id="@+id/textView2" />
+            <com.genosharing.gwyn.ExpandableTextView
+                android:id="@+id/txt_beschreibung"
+                android:text="@string/lorem_ipsum"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                />
 
             <View
                 android:layout_width="fill_parent"
-                android:layout_height="2dip"
+                android:layout_height="1dip"
                 android:layout_margin="20px"
-                android:background="@color/colorPrimary" />
+                android:background="@android:color/darker_gray" />
 
             <TextView
                 style="@style/HeaderOnPage"
@@ -73,150 +76,13 @@
             <TextView
                 style="@style/BasicText"
                 android:text=" - Flickset\n - Spaß"
-                android:id="@+id/textView5" />
+                android:id="@+id/txt_zubehoer" />
 
             <View
                 android:layout_width="fill_parent"
-                android:layout_height="2dip"
+                android:layout_height="1dip"
                 android:layout_margin="20px"
-                android:background="@color/colorPrimary" />
-
-            <TextView
-                style="@style/HeaderOnPage"
-                android:text="Zusatzleistungen"
-                android:id="@+id/lbl_zusatzleistungen" />
-
-            <CheckBox
-                style="@style/BasicText"
-                android:text="Pumpe (1€)"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/chk_pumpe" />
-
-            <CheckBox
-                style="@style/BasicText"
-                android:text="Anhänger (2€)"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/chk_anhaenger" />
-
-            <CheckBox
-                style="@style/BasicText"
-                android:text="Kinder (100€)"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/chk_kinder" />
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="2dip"
-                android:layout_margin="20px"
-                android:background="@color/colorPrimary" />
-
-            <TextView
-                style="@style/HeaderOnPage"
-                android:text="Versicherung"
-                android:id="@+id/lbl_versicherung" />
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        app:srcCompat="@drawable/tightrope_walker"
-                        android:id="@+id/imageView11" />
-
-                    <TextView
-                        android:text="Riskant"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/textView12"
-                        android:gravity="center_horizontal" />
-                </LinearLayout>
-
-                <SeekBar
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:max="10"
-                    android:progress="3"
-                    android:id="@+id/seekBar3"
-                    android:layout_weight="1"
-                    android:layout_gravity="center_vertical" />
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        app:srcCompat="@drawable/shield"
-                        android:id="@+id/imageView12" />
-
-                    <TextView
-                        android:text="Sicher"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/textView13"
-                        android:gravity="center_horizontal" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="2dip"
-                android:layout_margin="20px"
-                android:background="@color/colorPrimary" />
-
-            <TextView
-                style="@style/HeaderOnPage"
-                android:text="Austausch"
-                android:id="@+id/lbl_austausch" />
-
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-
-                <RadioButton
-                    style="@style/BasicText"
-                    android:text="Versand (8€)"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/radioButton"
-                    android:layout_weight="1" />
-
-                <RadioButton
-                    style="@style/BasicText"
-                    android:text="Abholung"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/radioButton2"
-                    android:layout_weight="1" />
-
-                <RadioButton
-                    style="@style/BasicText"
-                    android:text="GWYN-Station"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/radioButton3"
-                    android:layout_weight="1" />
-            </RadioGroup>
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="2dip"
-                android:layout_margin="20px"
-                android:background="@color/colorPrimary" />
+                android:background="@android:color/darker_gray" />
 
             <TextView
                 style="@style/HeaderOnPage"
@@ -226,7 +92,7 @@
             <TextView
                 style="@style/BasicText"
                 android:text="Von 28.01.2017 bis 30.01.2017"
-                android:id="@+id/text_verfuegbarkeit" />
+                android:id="@+id/txt_verfuegbarkeit" />
 
             <Button
                 android:layout_width="match_parent"
@@ -240,7 +106,7 @@
             <TextView
                 style="@style/HeaderOnPage"
                 android:text="Anbieter: Theo Bender"
-                android:id="@+id/text_view_anbieter"
+                android:id="@+id/lbl_anbieter"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
                 android:layout_width="match_parent" />
