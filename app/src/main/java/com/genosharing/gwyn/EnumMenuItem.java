@@ -5,25 +5,20 @@ package com.genosharing.gwyn;
  */
 
 public enum EnumMenuItem {
-    ENTDECKEN("Entdecken", 0, true),
-    KATEGORIEN("Kategorien", 1, true),
-    STATIONS("GWYN-Stations", 2, true),
-    PROFIL("Mein Profil", 3, true),
-    IMPRESSUM("Impressum", 4, true),
-    HILFE("Hilfe", 5, true),
-    ERGEBNISSE("Suchergebnisse", 6, false),
-    DETAIL("Detailansicht", 7, false),
-    BUCHUNG_ABGESCHLOSSEN("Buchung abgeschlossen", 8, false),
-    VERFUEGBARKEIT("Verfügbarkeit prüfen", 9, false),
-    CHECKOUT("Checkout", 10, false);
+    ENTDECKEN("Entdecken", 0, new EntdeckenFragment()),
+    KATEGORIEN("Kategorien", 1, new KategorienFragment()),
+    STATIONS("GWYN-Stations", 2, new StationsFragment()),
+    PROFIL("Mein Profil", 3, new ProfileFragment()),
+    IMPRESSUM("Impressum", 4, new ImpressumFragment()),
+    HILFE("Hilfe", 5, new HilfeFragment());
 
     private final String bezeichnung;
     private final int code;
-    private final boolean visible;
-    EnumMenuItem(String bezeichnung, int code, boolean visible) {
+    private final MenuItemFragment fragment;
+    EnumMenuItem(String bezeichnung, int code, MenuItemFragment fragment) {
         this.bezeichnung = bezeichnung;
         this.code = code;
-        this.visible = visible;
+        this.fragment = fragment;
     }
 
     public String getBezeichnung() {
@@ -34,9 +29,9 @@ public enum EnumMenuItem {
         return code;
     }
 
-    public boolean isVisible()
+    public MenuItemFragment getFragment()
     {
-        return visible;
+        return fragment;
     }
 
     public static EnumMenuItem getItemByPosition(int position)

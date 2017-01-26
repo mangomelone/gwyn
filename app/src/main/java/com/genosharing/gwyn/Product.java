@@ -3,6 +3,8 @@ package com.genosharing.gwyn;
 import android.graphics.Bitmap;
 import android.media.Image;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -12,12 +14,23 @@ public class Product {
 
     private String name;
     private String description;
-    private Bitmap image;
+    private List<Bitmap> images;
+    private List<String> tags;
 
-    public Product(String name, String description, Bitmap image) {
+    public Product(String name, String description, List<Bitmap> images, List<String> tags) {
         this.name = name;
         this.description = description;
-        this.image = image;
+        this.images = images;
+        this.tags = tags;
+    }
+
+    public Product(String name, String description, Bitmap image, List<String> tags) {
+        this.name = name;
+        this.description = description;
+        List<Bitmap> images = new ArrayList<>();
+        images.add(image);
+        this.images = images;
+        this.tags = tags;
     }
 
     public String getName() {
@@ -36,11 +49,19 @@ public class Product {
         this.description = description;
     }
 
-    public Bitmap getImage() {
-        return image;
+    public List<Bitmap> getImages() {
+        return images;
     }
 
-    public void setImage(Bitmap image) {
-        this.image = image;
+    public void setImages(List<Bitmap> image) {
+        this.images = image;
+    }
+
+    public List<String> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<String> tags) {
+        this.tags = tags;
     }
 }

@@ -57,7 +57,7 @@ public class NavigatorActivity extends AppCompatActivity {
         imageView.setLayoutParams(layoutParams);
         actionBar.setCustomView(imageView);
 
-        navigateTo(EnumMenuItem.ERGEBNISSE);
+        navigateTo(EnumMenuItem.ENTDECKEN.getFragment());
     }
 
     private void addDrawerItems() {
@@ -65,8 +65,7 @@ public class NavigatorActivity extends AppCompatActivity {
         EnumMenuItem[] items = EnumMenuItem.values();
         for (EnumMenuItem item: items)
         {
-            if (item.isVisible())
-                menuItems.add(item.getBezeichnung());
+            menuItems.add(item.getBezeichnung());
         }
         mAdapter = new ArrayAdapter<String>(this, R.layout.single_menu_item, menuItems);
         mDrawerList.setAdapter(mAdapter);
@@ -93,7 +92,7 @@ public class NavigatorActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 EnumMenuItem selectedItem = EnumMenuItem.getItemByPosition(position);
-                navigateTo(selectedItem);
+                navigateTo(selectedItem.getFragment());
 
                 // Highlight the selected item, update the title, and close the drawer
                 mDrawerList.setItemChecked(position, true);
@@ -102,19 +101,13 @@ public class NavigatorActivity extends AppCompatActivity {
         });
     }
 
-    public void navigateTo(EnumMenuItem item) {
-        Fragment fragment = new MenuItemFragment();
-        Bundle args = new Bundle();
-        args.putSerializable(MenuItemFragment.ARG_MENU_ITEM_NUMBER, item);
-        fragment.setArguments(args);
-
-
+    public void navigateTo(MenuItemFragment fragment) {
         // Insert the fragment by replacing any existing fragment
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction()
                 .replace(R.id.content_frame, fragment)
                 .commit();
-        getSupportActionBar().setTitle(item.getBezeichnung());
+        getSupportActionBar().setTitle(fragment.getBezeichnung());
     }
 
     @Override
