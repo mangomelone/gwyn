@@ -33,7 +33,7 @@ public class ResultListArrayAdapter extends ArrayAdapter {
         }
 
         ImageView image = (ImageView) view.findViewById(R.id.single_result_image);
-        image.setImageBitmap(offer.getProduct().getImage());
+        image.setImageBitmap(offer.getProduct().getImages().get(0));
 
         TextView title = (TextView) view.findViewById(R.id.single_result_title);
         title.setText(offer.getProduct().getName());
