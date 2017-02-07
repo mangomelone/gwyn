@@ -22,21 +22,21 @@
             android:id="@+id/lbl_zusatzleistungen" />
 
         <CheckBox
-            style="@style/BasicText"
+            style="@style/Widget.AppCompat.CompoundButton.CheckBox"
             android:text="Pumpe (1€)"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/chk_pumpe" />
 
         <CheckBox
-            style="@style/BasicText"
+            style="@style/Widget.AppCompat.CompoundButton.CheckBox"
             android:text="Anhänger (2€)"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/chk_anhaenger" />
 
         <CheckBox
-            style="@style/BasicText"
+            style="@style/Widget.AppCompat.CompoundButton.CheckBox"
             android:text="Kinder (100€)"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -124,7 +124,7 @@
             android:layout_height="match_parent" >
 
             <RadioButton
-                style="@style/BasicText"
+                style="@style/Widget.AppCompat.CompoundButton.RadioButton"
                 android:text="Versand (8€)"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -132,7 +132,7 @@
                 android:layout_weight="1" />
 
             <RadioButton
-                style="@style/BasicText"
+                style="@style/Widget.AppCompat.CompoundButton.RadioButton"
                 android:text="Abholung"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -140,7 +140,7 @@
                 android:layout_weight="1" />
 
             <RadioButton
-                style="@style/BasicText"
+                style="@style/Widget.AppCompat.CompoundButton.RadioButton"
                 android:text="GWYN-Station"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

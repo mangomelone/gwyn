@@ -1,5 +1,13 @@
 package com.genosharing.gwyn;
 
+import com.genosharing.gwyn.fragments.EntdeckenFragment;
+import com.genosharing.gwyn.fragments.HilfeFragment;
+import com.genosharing.gwyn.fragments.ImpressumFragment;
+import com.genosharing.gwyn.fragments.KategorienFragment;
+import com.genosharing.gwyn.fragments.MenuItemFragment;
+import com.genosharing.gwyn.fragments.ProfileFragment;
+import com.genosharing.gwyn.fragments.StationsFragment;
+
 /**
  * Created by Blackrental on 07.12.2016.
  */

@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".AdvertisementActivity"
+            android:name=".activities.AdvertisementActivity"
             android:label="GWYN"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -19,16 +19,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".StartActivity"
+            android:name=".activities.StartActivity"
             android:label="Suche Produkt"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".NavigatorActivity"
+            android:name=".activities.NavigatorActivity"
             android:label="Suchergebnisse" />
-        <activity
-            android:name=".DetailActivity"
-            android:label="Ergebnisse"
-            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

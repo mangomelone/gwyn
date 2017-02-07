@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:text="Hüpfburg"
                 android:id="@+id/detail_titel"
-                style="@style/Header" />
+                style="@style/TextAppearance.AppCompat.Display1" />
 
             <android.support.v4.view.ViewPager
                 android:id="@+id/viewPageAndroid"
@@ -51,11 +51,13 @@
                 android:paddingBottom="5dp"/>
 
             <TextView
-                style="@style/HeaderOnPage"
+                style="@style/TextAppearance.AppCompat.Title"
                 android:text="Beschreibung"
-                android:id="@+id/textView3" />
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-            <com.genosharing.gwyn.ExpandableTextView
+            <com.genosharing.gwyn.ui.elements.ExpandableTextView
                 android:id="@+id/txt_beschreibung"
                 android:text="@string/lorem_ipsum"
                 android:layout_width="fill_parent"
@@ -69,14 +71,18 @@
                 android:background="@android:color/darker_gray" />
 
             <TextView
-                style="@style/HeaderOnPage"
+                style="@style/TextAppearance.AppCompat.Title"
                 android:text="Zubehör inklusive"
-                android:id="@+id/textView4" />
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
             <TextView
-                style="@style/BasicText"
+                style="@style/TextAppearance.AppCompat.Body1"
                 android:text=" - Flickset\n - Spaß"
-                android:id="@+id/txt_zubehoer" />
+                android:id="@+id/txt_zubehoer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
             <View
                 android:layout_width="fill_parent"
@@ -85,14 +91,18 @@
                 android:background="@android:color/darker_gray" />
 
             <TextView
-                style="@style/HeaderOnPage"
+                style="@style/TextAppearance.AppCompat.Title"
                 android:text="Verfügbarkeit"
-                android:id="@+id/lbl_verfuegbarkeit" />
+                android:id="@+id/lbl_verfuegbarkeit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
             <TextView
-                style="@style/BasicText"
+                style="@style/TextAppearance.AppCompat.Body1"
                 android:text="Von 28.01.2017 bis 30.01.2017"
-                android:id="@+id/txt_verfuegbarkeit" />
+                android:id="@+id/txt_verfuegbarkeit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
             <Button
                 android:layout_width="match_parent"
@@ -104,12 +114,13 @@
                 android:clickable="true"/>
 
             <TextView
-                style="@style/HeaderOnPage"
+                style="@style/TextAppearance.AppCompat.Title"
                 android:text="Anbieter: Theo Bender"
                 android:id="@+id/lbl_anbieter"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:layout_width="match_parent" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -151,12 +162,14 @@
                 </LinearLayout>
 
                     <TextView
-                        style="@style/BasicText"
+                        style="@style/TextAppearance.AppCompat.Body1"
                         android:text="@string/userprofil"
                         android:id="@+id/detail_profile_description"
                         android:layout_gravity="center_horizontal"
                         android:gravity="center"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
 
             </LinearLayout>
 

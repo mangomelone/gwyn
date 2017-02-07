@@ -47,17 +47,22 @@
         <!--<item name="android:textColor">@color/colorPrimary</item>-->
     </style>
 
-    <style name="BasicText">
+    <!--<style name="BasicText">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:textSize">15dp</item>
+        <item name="style:textSize">15dp</item>
         <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
         <item name="android:padding">8dp</item>
-    </style>
+    </style>-->
 
     <style name="RatingBar" parent="Theme.AppCompat">
         <item name="colorControlNormal">@color/lightGrey</item>
         <item name="colorControlActivated">@color/colorAccent</item>
+    </style>
+
+    <style name="GWYNImage">
+        <item name="app:civ_border_color">@color/colorAccent</item>
+        <item name="app:civ_border_width">4dp</item>
     </style>
 
 </resources>
