@@ -60,6 +60,7 @@
             <com.genosharing.gwyn.ui.elements.ExpandableTextView
                 android:id="@+id/txt_beschreibung"
                 android:text="@string/lorem_ipsum"
+                android:textColor="@color/black"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 />
@@ -111,6 +112,8 @@
                 android:id="@+id/verfuegbarkeit_button"
                 android:background="@color/colorAccent"
                 android:textColor="@android:color/white"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
                 android:clickable="true"/>
 
             <TextView
@@ -124,6 +127,7 @@
 
             <LinearLayout
                 android:orientation="horizontal"
+                android:paddingBottom="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -131,19 +135,20 @@
                     android:orientation="vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="20dp"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:layout_gravity="center_vertical">
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
                         android:id="@+id/detail_profile_pic"
-                        android:contentDescription="@string/productImage"
-                        android:src="@mipmap/ic_launcher"
-                        android:layout_gravity="center_horizontal"
+                        android:contentDescription="@string/vendorImage"
+                        android:src="@drawable/suchergebnis1potrait"
+                        app:civ_border_color="@color/colorPrimary"
+                        app:civ_border_width="2dp"
                         android:paddingLeft="@dimen/icon_margin"
                         android:paddingRight="@dimen/icon_margin"
-                        android:paddingTop="30dp" />
+                        android:paddingTop="16dp" />
 
                     <RatingBar
                         android:layout_width="wrap_content"
@@ -151,11 +156,11 @@
                         android:id="@+id/detail_rating"
                         android:numStars="5"
                         android:stepSize="1"
+                        android:rating="4"
                         android:theme="@style/RatingBar"
                         android:layout_gravity="center_horizontal"
                         android:paddingLeft="8dp"
                         android:paddingRight="8dp"
-                        android:paddingBottom="30dp"
                         style="@style/Widget.AppCompat.RatingBar.Small"
                         android:scaleX="0.5"
                         android:scaleY="0.5" />

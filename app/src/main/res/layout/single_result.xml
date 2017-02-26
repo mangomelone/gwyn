@@ -2,20 +2,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minHeight="?android:listPreferredItemHeight"
     android:id="@+id/single_result_item"
     android:gravity="center_vertical">
 
     <com.mikhaellopez.circularimageview.CircularImageView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:id="@+id/single_result_image"
         android:contentDescription="@string/productImage"
         android:src="@drawable/karaokebox"
-        style="@style/GWYNImage"
-        android:padding="@dimen/icon_margin"/>
+        app:civ_border_color="@color/colorPrimary"
+        app:civ_border_width="2dp"
+        android:layout_margin="@dimen/icon_margin"/>
 
     <LinearLayout
         android:orientation="vertical"
@@ -27,11 +28,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hüpfburg"
+            android:text="Metabo Bohrmaschine SEB1000"
             android:id="@+id/single_result_title"
             android:layout_gravity="center_horizontal"
             android:fontFamily="sans-serif"
-            style="@style/TextAppearance.AppCompat.Headline"/>
+            style="@style/TextAppearance.AppCompat.Headline"
+            android:textAlignment="center" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -39,7 +41,8 @@
             android:text="17€/Tag"
             android:id="@+id/single_result_price"
             android:layout_gravity="center_horizontal"
-            style="@style/TextAppearance.AppCompat.Subhead" />
+            style="@style/TextAppearance.AppCompat.Subhead"
+            android:textAlignment="center" />
 
     </LinearLayout>
 
@@ -50,15 +53,16 @@
         android:gravity="center">
 
     <com.mikhaellopez.circularimageview.CircularImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:id="@+id/single_result_profile_pic"
         android:contentDescription="@string/vendorImage"
         android:src="@drawable/suchergebnis1potrait"
-        style="@style/GWYNImage"
+        app:civ_border_color="@color/colorPrimary"
+        app:civ_border_width="2dp"
         android:paddingLeft="@dimen/icon_margin"
         android:paddingRight="@dimen/icon_margin"
-        android:paddingTop="30dp" />
+        android:paddingTop="16dp" />
 
     <RatingBar
         android:layout_width="wrap_content"
@@ -66,11 +70,12 @@
         android:id="@+id/ratingBar"
         android:numStars="5"
         android:stepSize="1"
+        android:rating="4"
         android:theme="@style/RatingBar"
         android:layout_gravity="center_horizontal"
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
-        android:paddingBottom="30dp"
+        android:paddingBottom="16dp"
         style="@style/Widget.AppCompat.RatingBar.Small"
         android:scaleX="0.5"
         android:scaleY="0.5" />

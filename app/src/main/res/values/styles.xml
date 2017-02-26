@@ -60,9 +60,9 @@
         <item name="colorControlActivated">@color/colorAccent</item>
     </style>
 
-    <style name="GWYNImage">
+    <!--<style name="GWYNImage">
         <item name="app:civ_border_color">@color/colorAccent</item>
         <item name="app:civ_border_width">4dp</item>
-    </style>
+    </style>-->
 
 </resources>

@@ -20,4 +20,6 @@
     <color name="duskYellow">#FFD700</color>
     <color name="lightGrey">#d4cda9</color>
 
+    <color name="black">#000000</color>
+
 </resources>
