@@ -47,7 +47,7 @@ public class DetailFragment extends MenuItemFragment {
 
         TextView zubehoer = (TextView) view.findViewById(R.id.txt_zubehoer);
         StringBuilder builder = new StringBuilder();
-        for (String zubehoerElement : angebot.getZubehoerListe())
+        for (String zubehoerElement : angebot.getIncluded())
         {
             builder.append("- " + zubehoerElement + "\n");
         }

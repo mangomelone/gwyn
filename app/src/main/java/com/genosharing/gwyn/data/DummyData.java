@@ -5,15 +5,23 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
 import com.genosharing.gwyn.R;
+import com.genosharing.gwyn.model.Accessory;
+import com.genosharing.gwyn.model.Availability;
 import com.genosharing.gwyn.model.Offer;
 import com.genosharing.gwyn.model.Price;
+import com.genosharing.gwyn.model.PriceUnit;
+import com.genosharing.gwyn.model.Rent;
 import com.genosharing.gwyn.model.Product;
 import com.genosharing.gwyn.model.Rating;
 import com.genosharing.gwyn.model.User;
 
+import org.joda.time.DateTime;
+import org.joda.time.Interval;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Currency;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -25,14 +33,18 @@ public class DummyData {
     private static final double SCALE = 0.5;
     private static final double PROFILE_SCALE = 0.25;
 
-    private static final Price _10EuroProTag = new Price(BigDecimal.TEN, Currency.getInstance(Locale.GERMANY), "Tag");
-    private static final Price _12EuroProTag = new Price(BigDecimal.valueOf(12), Currency.getInstance(Locale.GERMANY), "Tag");
-    private static final Price _18EuroProTag = new Price(BigDecimal.valueOf(18), Currency.getInstance(Locale.GERMANY), "Tag");
-    private static final Price _20EuroProWoche = new Price(BigDecimal.valueOf(20), Currency.getInstance(Locale.GERMANY), "Woche");
-    private static final Price _25EuroProTag = new Price(BigDecimal.valueOf(25), Currency.getInstance(Locale.GERMANY), "Tag");
-    private static final Price _29EuroProTag = new Price(BigDecimal.valueOf(29), Currency.getInstance(Locale.GERMANY), "Tag");
-    private static final Price _39EuroProTag = new Price(BigDecimal.valueOf(39), Currency.getInstance(Locale.GERMANY), "Tag");
-    private static final Price _599EuroProWoche = new Price(BigDecimal.valueOf(599), Currency.getInstance(Locale.GERMANY), "Woche");
+    private static final Price _10Euro = new Price(BigDecimal.TEN);
+    private static final Price _12Euro = new Price(BigDecimal.valueOf(12));
+    private static final Price _20Euro = new Price(BigDecimal.valueOf(20));
+
+    private static final Rent _10EuroProTag = new Rent(_10Euro, PriceUnit.DAY);
+    private static final Rent _12EuroProTag = new Rent(_12Euro, PriceUnit.DAY);
+    private static final Rent _18EuroProTag = new Rent(new Price(BigDecimal.valueOf(18)), PriceUnit.DAY);
+    private static final Rent _20EuroProWoche = new Rent(_20Euro, PriceUnit.WEEK);
+    private static final Rent _25EuroProTag = new Rent(new Price(BigDecimal.valueOf(25)), PriceUnit.DAY);
+    private static final Rent _29EuroProTag = new Rent(new Price(BigDecimal.valueOf(29)), PriceUnit.DAY);
+    private static final Rent _39EuroProTag = new Rent(new Price(BigDecimal.valueOf(39)), PriceUnit.DAY);
+    private static final Rent _599EuroProWoche = new Rent(new Price(BigDecimal.valueOf(599)), PriceUnit.WEEK);
 
     public static List<Offer> getOffers(Activity activity) {
         List<Offer> offers = new ArrayList<>();
@@ -89,63 +101,43 @@ public class DummyData {
         User verkaeufer2 = new User("Theo", "Bender", BitmapFactory.decodeResource(activity.getResources(), R.drawable.suchergebnis2potrait), high, activity.getString(R.string.userprofil));
         User verkaeufer3 = new User("Max", "Musterverkäufer", BitmapFactory.decodeResource(activity.getResources(), R.drawable.suchergebnis3portrait), low, activity.getString(R.string.userprofil));
 
-        List<String> zubehoer1 = new ArrayList<>();
-        zubehoer1.add("Sonnenbrille");
-        zubehoer1.add("Navigationsgerät");
+        List<String> includes = createIncludes("Gute Stimmung", "Spaß", "Hilfestellungen bei der Nutzung", "Anleitung");
 
-        List<String> zubehoer2 = new ArrayList<>();
-        zubehoer2.add("20er Pack Energiedrinks");
-        zubehoer2.add("1 Kiste Bier");
+        List<Accessory> zubehoer1 = createAccessories("Sonnenbrille", "Navigationsgerät");
 
-        List<String> zubehoer3 = new ArrayList<>();
-        zubehoer3.add("Halsbonbons");
-        zubehoer3.add("Ohrstöpsel");
+        List<Accessory> zubehoer2 = createAccessories("20er Pack Energiedrinks", "1 Kiste Bier");
 
-        List<String> zubehoer4 = new ArrayList<>();
-        zubehoer4.add("Helm");
-        zubehoer4.add("Getönte Skibrille");
+        List<Accessory> zubehoer3 = createAccessories("Halsbonbons", "Ohrstöpsel");
 
-        List<String> zubehoer5 = new ArrayList<>();
-        zubehoer5.add("Steinbohrer Set");
-        zubehoer5.add("Metallbohrer Set");
-        zubehoer5.add("Holzbohrer Set");
+        List<Accessory> zubehoer4 = createAccessories("Helm", "Getönte Skibrille");
 
-        List<String> zubehoer6 = new ArrayList<>();
-        zubehoer6.add("2ter Wireless Controller");
-        zubehoer6.add("Spiel Halo 5");
-        zubehoer6.add("Spiel Fifa17");
+        List<Accessory> zubehoer5 = createAccessories("Steinbohrer Set", "Metallbohrer Set", "Holzbohrer Set");
 
-        List<String> zubehoer7 = new ArrayList<>();
-        zubehoer7.add("Taucherbrille");
-        zubehoer7.add("Schnorchel");
-        zubehoer7.add("Flossen");
+        List<Accessory> zubehoer6 = createAccessories("2ter Wireless Controller", "Spiel Halo 5", "Spiel Fifa17");
 
-        List<String> zubehoer8 = new ArrayList<>();
-        zubehoer8.add("Gaming PC");
-        zubehoer8.add("4K Monitor");
-        zubehoer8.add("Brillenputztücher");
+        List<Accessory> zubehoer7 = createAccessories("Taucherbrille", "Schnorchel", "Flossen");
 
-        List<String> zubehoer9 = new ArrayList<>();
-        zubehoer9.add("10 Liter Fass Pils");
-        zubehoer9.add("Pilsgläser");
-        zubehoer9.add("Bierdeckel");
+        List<Accessory> zubehoer8 = createAccessories("Gaming PC", "4K Monitor", "Brillenputztücher");
 
-        List<String> zubehoerHuepf = new ArrayList<>();
-        zubehoer1.add("Pumpe");
-        zubehoer1.add("Ganz viel Spaß");
+        List<Accessory> zubehoer9 = createAccessories("10 Liter Fass Pils", "Pilsgläser", "Bierdeckel");
 
-        Offer offer1 = new Offer(tesla, zubehoer1,  _599EuroProWoche, verkaeufer1);
-        Offer offer2 = new Offer(partykuehlschrank, zubehoer2,  _20EuroProWoche, verkaeufer3);
-        Offer offer3 = new Offer(karaokemaschine, zubehoer3,  _10EuroProTag, verkaeufer2);
-        Offer offer4 = new Offer(snowboard, zubehoer4,  _25EuroProTag, verkaeufer2);
-        Offer offer5 = new Offer(bohrmaschine, zubehoer5,  _10EuroProTag, verkaeufer2);
-        Offer offer6 = new Offer(xbox, zubehoer6,  _29EuroProTag, verkaeufer2);
-        Offer offer7 = new Offer(unterwasserkamera, zubehoer7,  _18EuroProTag, verkaeufer2);
-        Offer offer8 = new Offer(htcvive, zubehoer8,  _39EuroProTag, verkaeufer2);
-        Offer offer9 = new Offer(zapfanlage, zubehoer9,  _18EuroProTag, verkaeufer2);
-        Offer offer10 = new Offer(huepfburg, zubehoerHuepf,  _20EuroProWoche, verkaeufer1);
-        Offer offer11 = new Offer(huepfinsel, zubehoerHuepf,  _20EuroProWoche, verkaeufer3);
-        Offer offer12 = new Offer(huepfhaus, zubehoerHuepf,  _10EuroProTag, verkaeufer2);
+        List<Accessory> zubehoerHuepf = createAccessories("Pumpe", "Ganz viel Spaß");
+
+        DateTime now = new DateTime();
+        Availability availability = new Availability(new Interval(now, now.plusYears(2)), new ArrayList<DateTime>());
+
+        Offer offer1 = new Offer(tesla, includes, zubehoer1,  _599EuroProWoche, verkaeufer1, availability);
+        Offer offer2 = new Offer(partykuehlschrank, includes, zubehoer2,  _20EuroProWoche, verkaeufer3, availability);
+        Offer offer3 = new Offer(karaokemaschine, includes, zubehoer3,  _10EuroProTag, verkaeufer2, availability);
+        Offer offer4 = new Offer(snowboard, includes, zubehoer4,  _25EuroProTag, verkaeufer2, availability);
+        Offer offer5 = new Offer(bohrmaschine, includes, zubehoer5,  _10EuroProTag, verkaeufer2, availability);
+        Offer offer6 = new Offer(xbox, includes, zubehoer6,  _29EuroProTag, verkaeufer2, availability);
+        Offer offer7 = new Offer(unterwasserkamera, includes, zubehoer7,  _18EuroProTag, verkaeufer2, availability);
+        Offer offer8 = new Offer(htcvive, includes, zubehoer8,  _39EuroProTag, verkaeufer2, availability);
+        Offer offer9 = new Offer(zapfanlage, includes, zubehoer9,  _18EuroProTag, verkaeufer2, availability);
+        Offer offer10 = new Offer(huepfburg, includes, zubehoerHuepf,  _20EuroProWoche, verkaeufer1, availability);
+        Offer offer11 = new Offer(huepfinsel, includes, zubehoerHuepf,  _20EuroProWoche, verkaeufer3, availability);
+        Offer offer12 = new Offer(huepfhaus, includes, zubehoerHuepf,  _10EuroProTag, verkaeufer2, availability);
 
         offers.add(offer1);
         offers.add(offer2);
@@ -177,5 +169,29 @@ public class DummyData {
             images.add(BitmapFactory.decodeResource(activity.getResources(), id));
         }
         return images;
+    }
+
+    private static List<String> createIncludes(String... includes)
+    {
+        List<String> toBeIncluded = new ArrayList<>();
+        for (String include : includes)
+        {
+            toBeIncluded.add(include);
+        }
+        return  toBeIncluded;
+    }
+
+    private static List<Accessory> createAccessories(String... accessories)
+    {
+        List<Price> prices = new ArrayList<>();
+        prices.add(_10Euro);
+        prices.add(_12Euro);
+        prices.add(_20Euro);
+        List<Accessory> accessoryList = new ArrayList<>();
+        for (int i = 0; i < accessories.length - 1; i++)
+        {
+            accessoryList.add(new Accessory(accessories[i], prices.get(i % prices.size())));
+        }
+        return accessoryList;
     }
 }

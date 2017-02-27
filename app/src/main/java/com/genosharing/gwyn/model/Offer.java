@@ -8,15 +8,19 @@ import java.util.List;
 public class Offer {
 
     private Product product;
-    private List<String> zubehoerListe;
-    private Price price;
+    private List<String> included;
+    private List<Accessory> accessories;
+    private Rent rent;
     private User vendor;
+    private Availability availability;
 
-    public Offer(Product product, List<String> zubehoerListe, Price price, User vendor) {
+    public Offer(Product product, List<String> included, List<Accessory> accessories, Rent rent, User vendor, Availability availabilty) {
         this.product = product;
-        this.zubehoerListe = zubehoerListe;
-        this.price = price;
+        this.included = included;
+        this.accessories = accessories;
+        this.rent = rent;
         this.vendor = vendor;
+        this.availability = availabilty;
     }
 
     public Product getProduct() {
@@ -27,20 +31,28 @@ public class Offer {
         this.product = product;
     }
 
-    public List<String> getZubehoerListe() {
-        return zubehoerListe;
+    public List<String> getIncluded() {
+        return included;
     }
 
-    public void setZubehoerListe(List<String> zubehoerListe) {
-        this.zubehoerListe = zubehoerListe;
+    public void setIncluded(List<String> included) {
+        this.included = included;
     }
 
-    public Price getPrice() {
-        return price;
+    public List<Accessory> getAccessories() {
+        return accessories;
     }
 
-    public void setPrice(Price price) {
-        this.price = price;
+    public void setAccessories(List<Accessory> accessories) {
+        this.accessories = accessories;
+    }
+
+    public Rent getRent() {
+        return rent;
+    }
+
+    public void setRent(Rent rent) {
+        this.rent = rent;
     }
 
     public User getVendor() {
@@ -51,8 +63,16 @@ public class Offer {
         this.vendor = vendor;
     }
 
+    public Availability getAvailability() {
+        return availability;
+    }
+
+    public void setAvailability(Availability availability) {
+        this.availability = availability;
+    }
+
     @Override
     public String toString() {
-        return product.getName() + " - " + price;
+        return product.getName() + " - " + rent;
     }
 }
