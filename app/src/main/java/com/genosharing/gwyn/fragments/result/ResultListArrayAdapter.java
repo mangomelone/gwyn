@@ -43,7 +43,7 @@ public class ResultListArrayAdapter extends ArrayAdapter {
         title.setText(offer.getProduct().getName());
 
         TextView price = (TextView) view.findViewById(R.id.single_result_price);
-        price.setText(offer.getPrice().toString());
+        price.setText(offer.getRent().toString());
 
         CircularImageView profilePic = (CircularImageView) view.findViewById(R.id.single_result_profile_pic);
         profilePic.setImageBitmap(offer.getVendor().getProfilePic());
