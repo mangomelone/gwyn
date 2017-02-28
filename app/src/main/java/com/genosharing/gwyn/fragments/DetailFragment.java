@@ -10,12 +10,21 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.borax12.materialdaterangepicker.date.DatePickerDialog;
 import com.genosharing.gwyn.ui.elements.AndroidImageAdapter;
 import com.genosharing.gwyn.data.DummyData;
 import com.genosharing.gwyn.ui.elements.ExpandableTextView;
 import com.genosharing.gwyn.activities.NavigatorActivity;
 import com.genosharing.gwyn.model.Offer;
 import com.genosharing.gwyn.R;
+
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 
 /**
  * Created by Corinna on 26.01.2017.
@@ -24,6 +33,11 @@ import com.genosharing.gwyn.R;
 public class DetailFragment extends MenuItemFragment {
 
     private Offer angebot;
+
+    public DetailFragment()
+    {
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -74,14 +88,30 @@ public class DetailFragment extends MenuItemFragment {
             }
         });
 
+        final TextView verfuegbarkeit_txt = (TextView) view.findViewById(R.id.txt_verfuegbarkeit);
+        final DatePickerDialog.OnDateSetListener onDateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth, int yearEnd, int monthOfYearEnd, int dayOfMonthEnd) {
+                DateTimeFormatter dateFormatter = DateTimeFormat.mediumDate().withLocale(Locale.GERMANY);
+                DateTime from = new DateTime(year, monthOfYear, dayOfMonth, 0, 0);
+                DateTime until = new DateTime(yearEnd, monthOfYearEnd, dayOfMonthEnd, 0, 0);
+                verfuegbarkeit_txt.setText("Von " + dateFormatter.print(from) +
+                        " bis " + dateFormatter.print(until));
+            }
+        };
+
         Button verfuegbarkeit = (Button) view.findViewById(R.id.verfuegbarkeit_button);
         verfuegbarkeit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NavigatorActivity activity = (NavigatorActivity) getActivity();
-                VerfuegbarkeitFragment verfuegbarkeitFragment = new VerfuegbarkeitFragment();
-                verfuegbarkeitFragment.setDetailFragment(DetailFragment.this);
-                activity.navigateTo(verfuegbarkeitFragment);
+                Calendar now = Calendar.getInstance();
+                DatePickerDialog dpd = DatePickerDialog.newInstance(
+                        onDateSetListener,
+                        now.get(Calendar.YEAR),
+                        now.get(Calendar.MONTH),
+                        now.get(Calendar.DAY_OF_MONTH)
+                );
+                dpd.show(getFragmentManager(), "Datepickerdialog");
             }
         });
 

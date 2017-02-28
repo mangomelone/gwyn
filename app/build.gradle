@@ -26,5 +26,6 @@ dependencies {
     compile 'com.android.support:design:23.4.0'
     compile 'pl.droidsonroids.gif:android-gif-drawable:1.1.+'
     compile 'com.mikhaellopez:circularimageview:3.0.2'
-    compile 'joda-time:joda-time:2.9.7'
+    compile 'net.danlew:android.joda:2.9.5.1'
+    compile 'com.borax12.materialdaterangepicker:library:1.9'
 }
