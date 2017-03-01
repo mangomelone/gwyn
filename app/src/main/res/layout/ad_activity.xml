@@ -48,7 +48,7 @@
          android:layout_below="@id/logoImageView"
          android:background="@color/white80transparent"
          android:id="@+id/imageView3">
-         <EditText android:id="@+id/input_email"
+         <EditText android:id="@+id/input_suche"
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
              android:inputType="text"

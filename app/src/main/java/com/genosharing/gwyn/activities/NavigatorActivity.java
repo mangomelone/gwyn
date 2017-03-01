@@ -17,8 +17,10 @@ import android.widget.ListView;
 import com.genosharing.gwyn.EnumMenuItem;
 import com.genosharing.gwyn.R;
 import com.genosharing.gwyn.fragments.MenuItemFragment;
+import com.genosharing.gwyn.fragments.result.ErgebnisseFragment;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class NavigatorActivity extends AppCompatActivity {
@@ -57,7 +59,20 @@ public class NavigatorActivity extends AppCompatActivity {
         imageView.setLayoutParams(layoutParams);
         actionBar.setCustomView(imageView);
 
-        navigateTo(EnumMenuItem.ENTDECKEN.getFragment());
+        MenuItemFragment naviFragment = EnumMenuItem.ENTDECKEN.getFragment();
+        if (null != getIntent().getExtras())
+        {
+            Class<MenuItemFragment> fragement = (Class<MenuItemFragment>) getIntent().getExtras().getSerializable("Fragment");
+            if (ErgebnisseFragment.class.equals(fragement))
+            {
+                ErgebnisseFragment ergebnisseFragment = new ErgebnisseFragment();
+                String suche = getIntent().getExtras().getString("Suchtext");
+                final List<String> suchworte = Arrays.asList(suche.split(" "));
+                ergebnisseFragment.setSuchworte(suchworte);
+                naviFragment = ergebnisseFragment;
+            }
+        }
+        navigateTo(naviFragment);
     }
 
     private void addDrawerItems() {
