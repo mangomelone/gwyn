@@ -34,50 +34,40 @@ public class DetailFragment extends MenuItemFragment {
 
     private Offer angebot;
 
-    public DetailFragment()
-    {
-
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_detail, container, false);
 
-        if (angebot == null)
-        {
-            angebot = DummyData.getOffers(getActivity()).get(2);
-        }
-
         TextView titel = (TextView) view.findViewById(R.id.detail_titel);
-        titel.setText(angebot.getProduct().getName());
+        titel.setText(getAngebot().getProduct().getName());
 
         ViewPager mViewPager = (ViewPager) view.findViewById(R.id.viewPageAndroid);
         AndroidImageAdapter adapterView = new AndroidImageAdapter(getActivity());
-        adapterView.setSliderImages(angebot.getProduct().getImages());
+        adapterView.setSliderImages(getAngebot().getProduct().getImages());
         mViewPager.setAdapter(adapterView);
 
         ExpandableTextView beschreibung = (ExpandableTextView) view.findViewById(R.id.txt_beschreibung);
-        beschreibung.setText(angebot.getProduct().getDescription());
+        beschreibung.setText(getAngebot().getProduct().getDescription());
 
         TextView zubehoer = (TextView) view.findViewById(R.id.txt_zubehoer);
         StringBuilder builder = new StringBuilder();
-        for (String zubehoerElement : angebot.getIncluded())
+        for (String zubehoerElement : getAngebot().getIncluded())
         {
             builder.append("- " + zubehoerElement + "\n");
         }
         zubehoer.setText(builder.toString());
 
         ImageView profilePic = (ImageView) view.findViewById(R.id.detail_profile_pic);
-        profilePic.setImageBitmap(angebot.getVendor().getProfilePic());
+        profilePic.setImageBitmap(getAngebot().getVendor().getProfilePic());
 
         RatingBar ratingBar = (RatingBar) view.findViewById(R.id.detail_rating);
-        ratingBar.setRating(angebot.getVendor().getRating().getValue());
+        ratingBar.setRating(getAngebot().getVendor().getRating().getValue());
 
         TextView anbieter = (TextView) view.findViewById(R.id.lbl_anbieter);
-        anbieter.setText("Anbieter: " + angebot.getVendor().getName());
+        anbieter.setText("Anbieter: " + getAngebot().getVendor().getName());
 
         TextView anbieter_desc = (TextView) view.findViewById(R.id.detail_profile_description);
-        anbieter_desc.setText(angebot.getVendor().getDescription());
+        anbieter_desc.setText(getAngebot().getVendor().getDescription());
 
         Button ausleihen = (Button) view.findViewById(R.id.ausleih_button);
         ausleihen.setOnClickListener(new View.OnClickListener() {
@@ -120,10 +110,18 @@ public class DetailFragment extends MenuItemFragment {
 
     @Override
     public String getBezeichnung() {
-        return "Detailansicht " + angebot.getProduct().getName();
+        return "Detailansicht " + getAngebot().getProduct().getName();
     }
 
     public void setAngebot(Offer angebot) {
         this.angebot = angebot;
+    }
+
+    public Offer getAngebot() {
+        if (angebot == null)
+        {
+            return DummyData.getOffers(getActivity()).get(2);
+        }
+        return angebot;
     }
 }

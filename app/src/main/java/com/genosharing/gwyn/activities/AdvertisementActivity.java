@@ -14,34 +14,21 @@ import android.widget.LinearLayout;
 
 import com.genosharing.gwyn.R;
 import com.genosharing.gwyn.ViewPagerAdapter;
+import com.genosharing.gwyn.data.DummyData;
+import com.genosharing.gwyn.fragments.DetailFragment;
 import com.genosharing.gwyn.fragments.result.ErgebnisseFragment;
+import com.genosharing.gwyn.model.Offer;
+
+import java.util.List;
 
 /**
  * Created by Sweet on 06.12.16.
  */
 public class AdvertisementActivity extends Activity {
 
-    private int[] amBestenBewertet = {
-            R.drawable.tesla,
-            R.drawable.unterwasserkamera,
-            R.drawable.htc_vive,
-            R.drawable.karaokebox,
-            R.drawable.partykuehlschrank,
-            R.drawable.schlagbohrmaschine_bild1,
-            R.drawable.x_box,
-            R.drawable.zapfanlage
-    };
+    private List<Offer> amBestenBewertet;
 
-    private int[] amHäufigstenVerliehen = {
-            R.drawable.htc_vive,
-            R.drawable.x_box,
-            R.drawable.schlagbohrmaschine_bild1,
-            R.drawable.tesla,
-            R.drawable.zapfanlage,
-            R.drawable.unterwasserkamera,
-            R.drawable.karaokebox,
-            R.drawable.partykuehlschrank
-    };
+    private List<Offer> amHäufigstenVerliehen;
 
     private ViewPager intro_images;
     private LinearLayout pager_indicator;
@@ -88,36 +75,35 @@ public class AdvertisementActivity extends Activity {
         //intro_images.setOnPageChangeListener(this);
         //setUiPageViewController();
 
+        amHäufigstenVerliehen = DummyData.getOffers(this);
         LinearLayout linearLayoutEntliehen = (LinearLayout) this.findViewById(R.id.linearLayoutEntliehen);
+        createScrollableOfferList(linearLayoutEntliehen, amHäufigstenVerliehen);
 
-        for (int imageRessource : amHäufigstenVerliehen)
-        {
-            ImageView tempImageView2 = new ImageView(this);
-            Bitmap scaledBitmap = BitmapFactory.decodeResource(getResources(), imageRessource);
-            scaledBitmap=Bitmap.createScaledBitmap(scaledBitmap, (int) 200, (int) 200, true);
-            tempImageView2.setImageBitmap(scaledBitmap);
-            tempImageView2.setLayoutParams(new ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.WRAP_CONTENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT));
-            tempImageView2.setPadding(40, 0, 40, 0);
-            linearLayoutEntliehen.addView(tempImageView2);
-        }
-
+        amBestenBewertet = DummyData.getOffers(this);
         LinearLayout linearLayoutBewertet = (LinearLayout) this.findViewById(R.id.linearLayoutBewertet);
+        createScrollableOfferList(linearLayoutBewertet, amBestenBewertet);
 
-        for (int imageRessource : amBestenBewertet)
+    }
+
+    private void createScrollableOfferList(LinearLayout linearLayout, List<Offer> offers) {
+        for (final Offer offer : offers)
         {
-            ImageView tempImageView2 = new ImageView(this);
-            Bitmap scaledBitmap = BitmapFactory.decodeResource(getResources(), imageRessource);
+            ImageView tempImageView = new ImageView(this);
+            Bitmap scaledBitmap = offer.getProduct().getImages().get(0);
             scaledBitmap=Bitmap.createScaledBitmap(scaledBitmap, (int) 200, (int) 200, true);
-            tempImageView2.setImageBitmap(scaledBitmap);
-            tempImageView2.setLayoutParams(new ViewGroup.LayoutParams(
+            tempImageView.setImageBitmap(scaledBitmap);
+            tempImageView.setLayoutParams(new ViewGroup.LayoutParams(
                     ViewGroup.LayoutParams.WRAP_CONTENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT));
-            tempImageView2.setPadding(40, 0, 40, 0);
-            linearLayoutBewertet.addView(tempImageView2);
+            tempImageView.setPadding(40, 0, 40, 0);
+            tempImageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    showOffer(offer);
+                }
+            });
+            linearLayout.addView(tempImageView);
         }
-
     }
 
 
@@ -141,6 +127,15 @@ public class AdvertisementActivity extends Activity {
         }
 
         dots[0].setImageDrawable(getResources().getDrawable(R.drawable.selecteditem_dot));
+    }
+
+    public void showOffer(Offer offer)
+    {
+        Intent intent = new Intent(this, NavigatorActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("Fragment", DetailFragment.class);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 
     public void showResults(View view)

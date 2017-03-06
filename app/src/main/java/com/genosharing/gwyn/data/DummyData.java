@@ -30,6 +30,8 @@ import java.util.Locale;
  */
 public class DummyData {
 
+    private static List<Offer> offers;
+
     private static final double SCALE = 0.5;
     private static final double PROFILE_SCALE = 0.25;
 
@@ -47,7 +49,13 @@ public class DummyData {
     private static final Rent _599EuroProWoche = new Rent(new Price(BigDecimal.valueOf(599)), PriceUnit.WEEK);
 
     public static List<Offer> getOffers(Activity activity) {
-        List<Offer> offers = new ArrayList<>();
+
+        if (offers != null)
+        {
+            return offers;
+        }
+
+        offers = new ArrayList<>();
 
         List<String> beliebtTag = new ArrayList<>();
         beliebtTag.add("Beliebt");

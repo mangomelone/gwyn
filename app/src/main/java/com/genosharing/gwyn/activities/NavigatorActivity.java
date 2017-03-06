@@ -16,8 +16,11 @@ import android.widget.ListView;
 
 import com.genosharing.gwyn.EnumMenuItem;
 import com.genosharing.gwyn.R;
+import com.genosharing.gwyn.fragments.DetailFragment;
+import com.genosharing.gwyn.fragments.EntdeckenFragment;
 import com.genosharing.gwyn.fragments.MenuItemFragment;
 import com.genosharing.gwyn.fragments.result.ErgebnisseFragment;
+import com.genosharing.gwyn.model.Offer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -71,6 +74,13 @@ public class NavigatorActivity extends AppCompatActivity {
                 ergebnisseFragment.setSuchworte(suchworte);
                 naviFragment = ergebnisseFragment;
             }
+            else if (DetailFragment.class.equals(fragement))
+            {
+                DetailFragment detailFragment = new DetailFragment();
+                Offer offer = (Offer) getIntent().getExtras().get("Angebot");
+                detailFragment.setAngebot(offer);
+                naviFragment = detailFragment;
+            }
         }
         navigateTo(naviFragment);
     }
@@ -122,7 +132,15 @@ public class NavigatorActivity extends AppCompatActivity {
         fragmentManager.beginTransaction()
                 .replace(R.id.content_frame, fragment)
                 .commit();
-        getSupportActionBar().setTitle(fragment.getBezeichnung());
+        if (EntdeckenFragment.class.equals(fragment.getClass()))
+        {
+            getSupportActionBar().hide();
+        }
+        else
+        {
+            getSupportActionBar().show();
+            getSupportActionBar().setTitle(fragment.getBezeichnung());
+        }
     }
 
     @Override
