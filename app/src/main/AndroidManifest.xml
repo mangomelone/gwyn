@@ -9,17 +9,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activities.AdvertisementActivity"
-            android:label="GWYN"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:name=".activities.NavigatorActivity"
+            android:screenOrientation="portrait"
+            android:label="Suchergebnisse">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".activities.NavigatorActivity"
-            android:label="Suchergebnisse">
         </activity>
     </application>
 

@@ -83,8 +83,9 @@ public class DetailFragment extends MenuItemFragment {
             @Override
             public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth, int yearEnd, int monthOfYearEnd, int dayOfMonthEnd) {
                 DateTimeFormatter dateFormatter = DateTimeFormat.mediumDate().withLocale(Locale.GERMANY);
-                DateTime from = new DateTime(year, monthOfYear, dayOfMonth, 0, 0);
-                DateTime until = new DateTime(yearEnd, monthOfYearEnd, dayOfMonthEnd, 0, 0);
+                // FIXME Month wird falsch übergeben -> +1
+                DateTime from = new DateTime(year, monthOfYear + 1, dayOfMonth, 0, 0);
+                DateTime until = new DateTime(yearEnd, monthOfYearEnd + 1, dayOfMonthEnd, 0, 0);
                 verfuegbarkeit_txt.setText("Von " + dateFormatter.print(from) +
                         " bis " + dateFormatter.print(until));
             }

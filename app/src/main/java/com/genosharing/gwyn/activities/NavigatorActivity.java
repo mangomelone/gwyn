@@ -62,27 +62,7 @@ public class NavigatorActivity extends AppCompatActivity {
         imageView.setLayoutParams(layoutParams);
         actionBar.setCustomView(imageView);
 
-        MenuItemFragment naviFragment = EnumMenuItem.ENTDECKEN.getFragment();
-        if (null != getIntent().getExtras())
-        {
-            Class<MenuItemFragment> fragement = (Class<MenuItemFragment>) getIntent().getExtras().getSerializable("Fragment");
-            if (ErgebnisseFragment.class.equals(fragement))
-            {
-                ErgebnisseFragment ergebnisseFragment = new ErgebnisseFragment();
-                String suche = getIntent().getExtras().getString("Suchtext");
-                final List<String> suchworte = Arrays.asList(suche.split(" "));
-                ergebnisseFragment.setSuchworte(suchworte);
-                naviFragment = ergebnisseFragment;
-            }
-            else if (DetailFragment.class.equals(fragement))
-            {
-                DetailFragment detailFragment = new DetailFragment();
-                Offer offer = (Offer) getIntent().getExtras().get("Angebot");
-                detailFragment.setAngebot(offer);
-                naviFragment = detailFragment;
-            }
-        }
-        navigateTo(naviFragment);
+        navigateTo(EnumMenuItem.ENTDECKEN.getFragment());
     }
 
     private void addDrawerItems() {

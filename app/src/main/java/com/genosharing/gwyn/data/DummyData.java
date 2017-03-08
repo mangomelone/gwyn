@@ -20,10 +20,7 @@ import org.joda.time.Interval;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Currency;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 /**
  * Created by hackathon on 06.12.16.
@@ -67,7 +64,7 @@ public class DummyData {
         huepfburgTags.add("Spaß");
 
         Product tesla = new Product("Tesla", activity.getString(R.string.desc_tesla),
-                createImages(activity, R.drawable.tesla), beliebtTag);
+                createImages(activity, R.drawable.tesla_gif), beliebtTag);
 
         Product partykuehlschrank = new Product("Edelstahl-Partykühlschrank", activity.getString(R.string.desc_partykuehlschrank),
                 createImages(activity, R.drawable.partykuehlschrank), beliebtTag);
@@ -76,11 +73,11 @@ public class DummyData {
                 createImages(activity, R.drawable.karaokebox), beliebtTag);
 
         Product snowboard = new Product("Snowboard Salomon", activity.getString(R.string.desc_snowboard),
-                createImages(activity, R.drawable.tesla), beliebtTag);
+                createImages(activity, R.drawable.snowboard_gif), beliebtTag);
 
 
         Product bohrmaschine = new Product("Metabo Bohrmaschine SEB1000", activity.getString(R.string.desc_bohrmaschine),
-                createImages(activity, R.drawable.schlagbohrmaschine_bild1), beliebtTag);
+                createImages(activity, R.drawable.schlagbohrmaschine_bild1, R.drawable.schlagbohrmaschine_bild2, R.drawable.schlagbohrmaschine_bild3, R.drawable.bohrmaschine2, R.drawable.bohrmaschine3, R.drawable.bohrmaschine4, R.drawable.bohrmaschine5, R.drawable.bohrmaschine6), beliebtTag);
 
         Product xbox = new Product("Xbox One S", activity.getString(R.string.desc_xbox),
                 createImages(activity, R.drawable.x_box), beliebtTag);
