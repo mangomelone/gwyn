@@ -13,7 +13,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hüpfburg"
-            android:id="@+id/textView"
+            android:id="@+id/checkout_header"
             style="@style/Header" />
 
         <TextView
@@ -21,26 +21,11 @@
             android:text="Zusatzleistungen"
             android:id="@+id/lbl_zusatzleistungen" />
 
-        <CheckBox
-            style="@style/Widget.AppCompat.CompoundButton.CheckBox"
-            android:text="Pumpe (1€)"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/chk_pumpe" />
-
-        <CheckBox
-            style="@style/Widget.AppCompat.CompoundButton.CheckBox"
-            android:text="Anhänger (2€)"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/chk_anhaenger" />
-
-        <CheckBox
-            style="@style/Widget.AppCompat.CompoundButton.CheckBox"
-            android:text="Kinder (100€)"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/chk_kinder" />
+            android:layout_height="match_parent"
+            android:id="@+id/linearLayoutZusatzleistungen"></LinearLayout>
 
         <View
             android:layout_width="fill_parent"
@@ -63,12 +48,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
-                <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    app:srcCompat="@drawable/tightrope_walker"
-                    android:id="@+id/imageView11" />
-
                 <TextView
                     android:text="Riskant"
                     android:layout_width="match_parent"
@@ -76,21 +55,65 @@
                     android:id="@+id/textView12"
                     android:gravity="center_horizontal" />
 
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    app:srcCompat="@drawable/tightrope_walker"
+                    android:id="@+id/imageView11" />
+
+                <TextView
+                    android:text="0€"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/lblVersicherungspreisRiskant"
+                    android:gravity="center_horizontal" />
+
             </LinearLayout>
 
-            <SeekBar
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:max="10"
-                android:progress="3"
-                android:id="@+id/seekBar3"
                 android:layout_weight="1"
-                android:layout_gravity="center_vertical" />
+                android:layout_gravity="center_vertical">
+
+                <TextView
+                    android:text="Etwas Risiko"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView2"
+                    android:gravity="center_horizontal" />
+
+                <SeekBar
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:max="2"
+                    android:progress="1"
+                    android:id="@+id/seekBar3"
+                    android:layout_gravity="center_vertical|center_horizontal" />
+
+                <TextView
+                    android:text="2,50€"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/lblVersicherungspreisetwas"
+                    android:gravity="center_horizontal" />
+
+            </LinearLayout>
+
+
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="Sicher"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView13"
+                    android:gravity="center_horizontal" />
 
                 <ImageView
                     android:layout_width="60dp"
@@ -99,11 +122,12 @@
                     android:id="@+id/imageView12" />
 
                 <TextView
-                    android:text="Sicher"
+                    android:text="5€"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView13"
+                    android:id="@+id/lblVersicherungspreisSicher"
                     android:gravity="center_horizontal" />
+
             </LinearLayout>
 
         </LinearLayout>

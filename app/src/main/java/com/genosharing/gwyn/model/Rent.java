@@ -35,6 +35,6 @@ public class Rent {
 
     @Override
     public String toString() {
-        return price.getAmount() + price.getCurrency().getSymbol() + "/" + unit;
+        return price + "/" + unit;
     }
 }

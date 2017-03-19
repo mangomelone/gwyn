@@ -14,6 +14,7 @@ import com.genosharing.gwyn.activities.NavigatorActivity;
 import com.genosharing.gwyn.R;
 import com.genosharing.gwyn.data.DummyData;
 import com.genosharing.gwyn.fragments.result.ErgebnisseFragment;
+import com.genosharing.gwyn.model.Inquiry;
 import com.genosharing.gwyn.model.Offer;
 
 import java.util.Arrays;
@@ -39,7 +40,7 @@ public class EntdeckenFragment extends MenuItemFragment {
         sloganImage.setImageBitmap(resizedSlogan);
 
         Bitmap bm2 = BitmapFactory.decodeResource(getResources(), R.drawable.logo);
-        Bitmap resized = Bitmap.createScaledBitmap(bm2, (int) (bm2.getWidth() * 0.6), (int) (bm2.getHeight() * 0.6), true);
+        Bitmap resized = Bitmap.createScaledBitmap(bm2, (int) (bm2.getWidth() * 0.4), (int) (bm2.getHeight() * 0.4), true);
         ImageView logoImage = (ImageView) view.findViewById(R.id.logoImageView);
         logoImage.setImageBitmap(resized);
 
@@ -96,7 +97,7 @@ public class EntdeckenFragment extends MenuItemFragment {
     {
         NavigatorActivity activity = (NavigatorActivity) getActivity();
         DetailFragment detailFragment = new DetailFragment();
-        detailFragment.setAngebot(offer);
+        detailFragment.setInquiry(new Inquiry(offer));
         activity.navigateTo(detailFragment);
     }
 

@@ -1,6 +1,10 @@
 package com.genosharing.gwyn.activities;
 
 import android.app.FragmentManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -21,6 +25,7 @@ import com.genosharing.gwyn.fragments.EntdeckenFragment;
 import com.genosharing.gwyn.fragments.MenuItemFragment;
 import com.genosharing.gwyn.fragments.result.ErgebnisseFragment;
 import com.genosharing.gwyn.model.Offer;
+import com.mikhaellopez.circularimageview.CircularImageView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -53,7 +58,9 @@ public class NavigatorActivity extends AppCompatActivity {
                 | ActionBar.DISPLAY_SHOW_CUSTOM);
         ImageView imageView = new ImageView(actionBar.getThemedContext());
         imageView.setScaleType(ImageView.ScaleType.CENTER);
-        imageView.setImageResource(R.drawable.logo_small);
+        Bitmap logo = BitmapFactory.decodeResource(getResources(), R.drawable.logo);
+        Bitmap resized = Bitmap.createScaledBitmap(logo, (int) (logo.getWidth() * 0.1), (int) (logo.getHeight() * 0.1), true);
+        imageView.setImageBitmap(resized);
         ActionBar.LayoutParams layoutParams = new ActionBar.LayoutParams(
                 ActionBar.LayoutParams.WRAP_CONTENT,
                 ActionBar.LayoutParams.WRAP_CONTENT, Gravity.RIGHT
@@ -61,7 +68,6 @@ public class NavigatorActivity extends AppCompatActivity {
         layoutParams.rightMargin = 40;
         imageView.setLayoutParams(layoutParams);
         actionBar.setCustomView(imageView);
-
         navigateTo(EnumMenuItem.ENTDECKEN.getFragment());
     }
 
@@ -111,6 +117,7 @@ public class NavigatorActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction()
                 .replace(R.id.content_frame, fragment)
+                .addToBackStack(null)
                 .commit();
         if (EntdeckenFragment.class.equals(fragment.getClass()))
         {

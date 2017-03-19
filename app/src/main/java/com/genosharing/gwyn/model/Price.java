@@ -36,4 +36,9 @@ public class Price {
     public void setCurrency(Currency currency) {
         this.currency = currency;
     }
+
+    @Override
+    public String toString() {
+        return getAmount() + getCurrency().getSymbol();
+    }
 }

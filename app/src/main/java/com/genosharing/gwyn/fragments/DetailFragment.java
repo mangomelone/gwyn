@@ -11,18 +11,18 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.borax12.materialdaterangepicker.date.DatePickerDialog;
+import com.genosharing.gwyn.model.Inquiry;
 import com.genosharing.gwyn.ui.elements.AndroidImageAdapter;
 import com.genosharing.gwyn.data.DummyData;
 import com.genosharing.gwyn.ui.elements.ExpandableTextView;
 import com.genosharing.gwyn.activities.NavigatorActivity;
-import com.genosharing.gwyn.model.Offer;
 import com.genosharing.gwyn.R;
 
 import org.joda.time.DateTime;
+import org.joda.time.Interval;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
@@ -32,49 +32,51 @@ import java.util.Locale;
 
 public class DetailFragment extends MenuItemFragment {
 
-    private Offer angebot;
+    private Inquiry inquiry;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_detail, container, false);
 
         TextView titel = (TextView) view.findViewById(R.id.detail_titel);
-        titel.setText(getAngebot().getProduct().getName());
+        titel.setText(inquiry.getForOffer().getProduct().getName());
 
         ViewPager mViewPager = (ViewPager) view.findViewById(R.id.viewPageAndroid);
         AndroidImageAdapter adapterView = new AndroidImageAdapter(getActivity());
-        adapterView.setSliderImages(getAngebot().getProduct().getImages());
+        adapterView.setSliderImages(inquiry.getForOffer().getProduct().getImages());
         mViewPager.setAdapter(adapterView);
 
         ExpandableTextView beschreibung = (ExpandableTextView) view.findViewById(R.id.txt_beschreibung);
-        beschreibung.setText(getAngebot().getProduct().getDescription());
+        beschreibung.setText(inquiry.getForOffer().getProduct().getDescription());
 
         TextView zubehoer = (TextView) view.findViewById(R.id.txt_zubehoer);
         StringBuilder builder = new StringBuilder();
-        for (String zubehoerElement : getAngebot().getIncluded())
+        for (String zubehoerElement : inquiry.getForOffer().getIncluded())
         {
             builder.append("- " + zubehoerElement + "\n");
         }
         zubehoer.setText(builder.toString());
 
         ImageView profilePic = (ImageView) view.findViewById(R.id.detail_profile_pic);
-        profilePic.setImageBitmap(getAngebot().getVendor().getProfilePic());
+        profilePic.setImageBitmap(inquiry.getForOffer().getVendor().getProfilePic());
 
         RatingBar ratingBar = (RatingBar) view.findViewById(R.id.detail_rating);
-        ratingBar.setRating(getAngebot().getVendor().getRating().getValue());
+        ratingBar.setRating(inquiry.getForOffer().getVendor().getRating().getValue());
 
         TextView anbieter = (TextView) view.findViewById(R.id.lbl_anbieter);
-        anbieter.setText("Anbieter: " + getAngebot().getVendor().getName());
+        anbieter.setText("Anbieter: " + inquiry.getForOffer().getVendor().getName());
 
         TextView anbieter_desc = (TextView) view.findViewById(R.id.detail_profile_description);
-        anbieter_desc.setText(getAngebot().getVendor().getDescription());
+        anbieter_desc.setText(inquiry.getForOffer().getVendor().getDescription());
 
         Button ausleihen = (Button) view.findViewById(R.id.ausleih_button);
         ausleihen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 NavigatorActivity activity = (NavigatorActivity) getActivity();
-                activity.navigateTo(new CheckoutFragment());
+                CheckoutFragment checkoutFragment = new CheckoutFragment();
+                checkoutFragment.setInquiry(getInquiry());
+                activity.navigateTo(checkoutFragment);
             }
         });
 
@@ -86,6 +88,7 @@ public class DetailFragment extends MenuItemFragment {
                 // FIXME Month wird falsch übergeben -> +1
                 DateTime from = new DateTime(year, monthOfYear + 1, dayOfMonth, 0, 0);
                 DateTime until = new DateTime(yearEnd, monthOfYearEnd + 1, dayOfMonthEnd, 0, 0);
+                inquiry.setRentingTime(new Interval(from, until));
                 verfuegbarkeit_txt.setText("Von " + dateFormatter.print(from) +
                         " bis " + dateFormatter.print(until));
             }
@@ -111,18 +114,18 @@ public class DetailFragment extends MenuItemFragment {
 
     @Override
     public String getBezeichnung() {
-        return "Detailansicht " + getAngebot().getProduct().getName();
+        return "Detailansicht " + inquiry.getForOffer().getProduct().getName();
     }
 
-    public void setAngebot(Offer angebot) {
-        this.angebot = angebot;
+    public void setInquiry(Inquiry inquiry) {
+        this.inquiry = inquiry;
     }
 
-    public Offer getAngebot() {
-        if (angebot == null)
+    public Inquiry getInquiry() {
+        if (inquiry == null)
         {
-            return DummyData.getOffers(getActivity()).get(2);
+            return new Inquiry(DummyData.getOffers(getActivity()).get(2));
         }
-        return angebot;
+        return inquiry;
     }
 }

@@ -11,6 +11,7 @@ import com.genosharing.gwyn.data.DummyData;
 import com.genosharing.gwyn.activities.NavigatorActivity;
 import com.genosharing.gwyn.fragments.DetailFragment;
 import com.genosharing.gwyn.fragments.MenuItemFragment;
+import com.genosharing.gwyn.model.Inquiry;
 import com.genosharing.gwyn.model.Offer;
 import com.genosharing.gwyn.R;
 
@@ -40,10 +41,11 @@ public class ErgebnisseFragment extends MenuItemFragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Offer detail = (Offer) parent.getItemAtPosition(position);
                 NavigatorActivity activity = (NavigatorActivity) getActivity();
                 DetailFragment detailFragment = new DetailFragment();
-                detailFragment.setAngebot(detail);
+                Offer angebot = (Offer) parent.getItemAtPosition(position);
+                Inquiry detail = new Inquiry(angebot);
+                detailFragment.setInquiry(detail);
                 activity.navigateTo(detailFragment);
             }
         });

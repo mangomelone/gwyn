@@ -60,6 +60,7 @@
          android:textColor="@color/colorPrimary"
          android:layout_below="@id/logoImageView"
          android:background="@color/white80transparent"
+         android:focusableInTouchMode="true"
          android:id="@+id/imageView3">
          <EditText android:id="@+id/input_suche"
              android:layout_width="match_parent"

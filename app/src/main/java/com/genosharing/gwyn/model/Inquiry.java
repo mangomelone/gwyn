@@ -10,10 +10,32 @@ import java.util.List;
 
 public class Inquiry {
 
+    private Offer forOffer;
     private List<Accessory> selectedAccessories;
     private InsuranceType insuranceType;
     private ExchangeType exchangeType;
     private Interval rentingTime;
+
+    public Inquiry(Offer forOffer)
+    {
+        this(forOffer, null, null, null, null);
+    }
+
+    public Inquiry(Offer forOffer, List<Accessory> selectedAccessories, InsuranceType insuranceType, ExchangeType exchangeType, Interval rentingTime) {
+        this.forOffer = forOffer;
+        this.selectedAccessories = selectedAccessories;
+        this.insuranceType = insuranceType;
+        this.exchangeType = exchangeType;
+        this.rentingTime = rentingTime;
+    }
+
+    public Offer getForOffer() {
+        return forOffer;
+    }
+
+    public void setForOffer(Offer forOffer) {
+        this.forOffer = forOffer;
+    }
 
     public List<Accessory> getSelectedAccessories() {
         return selectedAccessories;

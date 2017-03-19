@@ -27,6 +27,8 @@ import java.util.List;
  */
 public class DummyData {
 
+    public static final String BELIEBT = "beliebt";
+    public static final String MEISTVERLIEHEN = "meistverliehen";
     private static List<Offer> offers;
 
     private static final double SCALE = 0.5;
@@ -54,9 +56,6 @@ public class DummyData {
 
         offers = new ArrayList<>();
 
-        List<String> beliebtTag = new ArrayList<>();
-        beliebtTag.add("Beliebt");
-
         List<String> huepfburgTags = new ArrayList<>();
         huepfburgTags.add("Hüpfburg");
         huepfburgTags.add("Freizeit");
@@ -64,32 +63,33 @@ public class DummyData {
         huepfburgTags.add("Spaß");
 
         Product tesla = new Product("Tesla", activity.getString(R.string.desc_tesla),
-                createImages(activity, R.drawable.tesla_gif), beliebtTag);
+                createImages(activity, R.drawable.tesla_gif), createTags(BELIEBT, "Auto", "Fahrzeug", "Modern", "Elektro"));
 
         Product partykuehlschrank = new Product("Edelstahl-Partykühlschrank", activity.getString(R.string.desc_partykuehlschrank),
-                createImages(activity, R.drawable.partykuehlschrank), beliebtTag);
+                createImages(activity, R.drawable.partykuehlschrank), createTags(MEISTVERLIEHEN, "Fest", "Feier", "Getränke"));
 
         Product karaokemaschine = new Product("Karaokemaschine", activity.getString(R.string.desc_karaoke),
-                createImages(activity, R.drawable.karaokebox), beliebtTag);
+                createImages(activity, R.drawable.karaokebox), createTags(MEISTVERLIEHEN, "Singen", "Freunde", "Stimmung", "Spaß"));
 
         Product snowboard = new Product("Snowboard Salomon", activity.getString(R.string.desc_snowboard),
-                createImages(activity, R.drawable.snowboard_gif), beliebtTag);
+                createImages(activity, R.drawable.snowboard_gif), createTags(MEISTVERLIEHEN, "Schnee", "Winter", "Urlaub", "Fahren"));
 
 
         Product bohrmaschine = new Product("Metabo Bohrmaschine SEB1000", activity.getString(R.string.desc_bohrmaschine),
-                createImages(activity, R.drawable.schlagbohrmaschine_bild1, R.drawable.schlagbohrmaschine_bild2, R.drawable.schlagbohrmaschine_bild3, R.drawable.bohrmaschine2, R.drawable.bohrmaschine3, R.drawable.bohrmaschine4, R.drawable.bohrmaschine5, R.drawable.bohrmaschine6), beliebtTag);
+                createImages(activity, R.drawable.schlagbohrmaschine_bild1, R.drawable.schlagbohrmaschine_bild2, R.drawable.schlagbohrmaschine_bild3, R.drawable.bohrmaschine2, R.drawable.bohrmaschine3, R.drawable.bohrmaschine4, R.drawable.bohrmaschine5, R.drawable.bohrmaschine6),
+                createTags(MEISTVERLIEHEN, "Handwerk", "Werkzeug"));
 
         Product xbox = new Product("Xbox One S", activity.getString(R.string.desc_xbox),
-                createImages(activity, R.drawable.x_box), beliebtTag);
+                createImages(activity, R.drawable.x_box), createTags(BELIEBT, "Konsole", "Spiele"));
 
         Product unterwasserkamera = new Product("Key Mission 170", activity.getString(R.string.desc_unterwasserkamera),
-                createImages(activity, R.drawable.unterwasserkamera), beliebtTag);
+                createImages(activity, R.drawable.unterwasserkamera), createTags(BELIEBT, "Fotografie", "Equipment", "Urlaub", "Reise"));
 
-        Product htcvive  = new Product("HTC Vive", activity.getString(R.string.desc_unterwasserkamera),
-                createImages(activity, R.drawable.htc_vive), beliebtTag);
+        Product htcvive  = new Product("HTC Vive", activity.getString(R.string.desc_vive),
+                createImages(activity, R.drawable.htc_vive), createTags(BELIEBT, "Virtual Reality"));
 
-        Product zapfanlage = new Product("Bierzapfanlage", activity.getString(R.string.desc_unterwasserkamera),
-                createImages(activity, R.drawable.zapfanlage), beliebtTag);
+        Product zapfanlage = new Product("Bierzapfanlage", activity.getString(R.string.desc_zapfanlage),
+                createImages(activity, R.drawable.zapfanlage), createTags(MEISTVERLIEHEN, "Feier", "Fest", "Getränke"));
 
         Product huepfburg = new Product("Hüpfhaus", "Ganz wunderbare Hüpfburg",
                 createImages(activity, R.drawable.beschreibung1, R.drawable.beschreibung2, R.drawable.beschreibung3), huepfburgTags);
@@ -176,6 +176,16 @@ public class DummyData {
         return images;
     }
 
+    private static List<String> createTags(String... tags)
+    {
+        List<String> tagList = new ArrayList<>();
+        for (String tag : tags)
+        {
+            tagList.add(tag);
+        }
+        return tagList;
+    }
+
     private static List<String> createIncludes(String... includes)
     {
         List<String> toBeIncluded = new ArrayList<>();
@@ -193,7 +203,7 @@ public class DummyData {
         prices.add(_12Euro);
         prices.add(_20Euro);
         List<Accessory> accessoryList = new ArrayList<>();
-        for (int i = 0; i < accessories.length - 1; i++)
+        for (int i = 0; i < accessories.length; i++)
         {
             accessoryList.add(new Accessory(accessories[i], prices.get(i % prices.size())));
         }
