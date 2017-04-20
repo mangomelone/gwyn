@@ -128,7 +128,7 @@ public class DummyData {
 
         List<Accessory> zubehoerHuepf = createAccessories("Pumpe", "Ganz viel Spaß");
 
-        DateTime now = new DateTime();
+        DateTime now = DateTime.now();
         Availability availability = new Availability(new Interval(now, now.plusYears(2)), new ArrayList<DateTime>());
 
         Offer offer1 = new Offer(tesla, includes, zubehoer1,  _599EuroProWoche, verkaeufer1, availability);

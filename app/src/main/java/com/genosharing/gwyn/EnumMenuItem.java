@@ -1,8 +1,6 @@
 package com.genosharing.gwyn;
 
 import com.genosharing.gwyn.fragments.EntdeckenFragment;
-import com.genosharing.gwyn.fragments.HilfeFragment;
-import com.genosharing.gwyn.fragments.ImpressumFragment;
 import com.genosharing.gwyn.fragments.KategorienFragment;
 import com.genosharing.gwyn.fragments.MenuItemFragment;
 import com.genosharing.gwyn.fragments.ProfileFragment;
@@ -16,9 +14,7 @@ public enum EnumMenuItem {
     ENTDECKEN("Entdecken", 0, new EntdeckenFragment()),
     KATEGORIEN("Kategorien", 1, new KategorienFragment()),
     STATIONS("GWYN-Stations", 2, new StationsFragment()),
-    PROFIL("Mein Profil", 3, new ProfileFragment()),
-    IMPRESSUM("Impressum", 4, new ImpressumFragment()),
-    HILFE("Hilfe", 5, new HilfeFragment());
+    PROFIL("Mein Profil", 3, new ProfileFragment());
 
     private final String bezeichnung;
     private final int code;
